@@ -499,7 +499,8 @@ footer .fin b{color:var(--ink);font-weight:600}
           <div class="inner"><div class="ph"><img src="mb-home.jpg" alt="Featured Project 2"></div></div>
           <span class="arrow">&rarr;</span>
         </div>
-        <div class="cap"><span class="t">MoveBuddha</span><span class="m">Relocation Services &middot; 2025</span></div>
+        <div class="cap"><span class="t">MoveBuddha</span><span class="m">Moving & Relocation
+ &middot; 2025</span></div>
       </a>
 
       <a class="pcard rv" href="project-3.html" data-protected="true">
@@ -634,6 +635,11 @@ footer .fin b{color:var(--ink);font-weight:600}
         <span class="who"><span class="co">Despegar</span><span class="rl">UX Designer</span></span>
         <span class="yr">Jun 2013 &ndash; Aug 2018</span>
       </div></div>
+    <div class="rv" style="margin-top:clamp(28px,4vh,44px)">
+      <a class="btn ghost" href="https://drive.google.com/file/d/1JJtCXpD9Jnjs8gMPiz6l5uTNCeU_r7Kz/view?usp=sharing" target="_blank" rel="noopener">
+        <span class="lw"><span class="l">View full portfolio &rarr;</span><span class="l dup">View full portfolio &rarr;</span></span>
+      </a>
+    </div>
   </section>
 
   <!-- CONTACT -->
@@ -752,6 +758,7 @@ btn.addEventListener('click',function(){
   function attempt(){
     if(input.value===PASS){
       overlay.classList.remove('show');
+      sessionStorage.setItem('auth','1');
       window.location.href=pendingHref;
     } else {
       errorEl.classList.add('show');
