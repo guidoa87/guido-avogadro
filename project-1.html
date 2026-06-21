@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guido Avogadro — Senior Product Designer</title>
-<meta name="description" content="Senior product designer crafting products that feel obvious and convert better. 13+ years across travel, fintech, enterprise and DTC.">
+<title>CookUnity — Meals people come back to · Guido Avogadro</title>
+<meta name="description" content="Founding designer on CookUnity's chef-to-consumer meal subscription. Onboarding, menu, checkout and retention.">
+<meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -133,7 +134,7 @@ header.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(14px);box-
 .hero .photo img{width:100%;height:100%;object-fit:cover}
 .hero .photo .alt2{position:absolute;inset:0;opacity:0}
 @media(prefers-reduced-motion:no-preference){
-  .hero .photo .alt2{animation:swap 2s linear infinite}
+  .hero .photo .alt2{animation:swap 4s linear infinite}
 }
 @keyframes swap{
   0%,46%{opacity:0}
@@ -258,11 +259,10 @@ header.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(14px);box-
 
 /* ===== experience ===== */
 .exp .row{
-  display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;
+  display:grid;grid-template-columns:auto 1.1fr 1fr auto;gap:16px;align-items:center;
   padding:clamp(16px,2.4vh,24px) 0;border-bottom:1px solid var(--line);
   transition:padding-left .3s var(--ease);
 }
-.exp .who{display:flex;flex-direction:column;gap:3px;min-width:0}
 .exp .ico{
   width:48px;height:48px;border-radius:13px;background:#fff;
   border:1px solid var(--line-soft);
@@ -271,15 +271,13 @@ header.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(14px);box-
   transition:transform .35s var(--ease),box-shadow .35s var(--ease);
 }
 .exp .row:hover .ico{transform:scale(1.06);box-shadow:0 2px 3px rgba(18,18,18,.08),0 14px 28px -12px rgba(18,18,18,.35)}
-.exp .ico img{width:66%;height:66%;object-fit:contain}
+.exp .ico img{width:100%;height:100%;object-fit:cover}
 .exp .ico .ini{font-family:var(--disp);font-weight:800;font-size:15px;letter-spacing:-.02em;color:var(--mid)}
 .exp .row:first-of-type{border-top:1px solid var(--line)}
 @media(hover:hover){.exp .row:hover{padding-left:10px}}
-.exp .co{font-family:var(--disp);font-weight:700;font-size:clamp(1.2rem,2.4vw,1.6rem);letter-spacing:-.02em;line-height:1.15}
-.exp .rl{color:var(--mid);font-size:.92rem}
+.exp .co{font-weight:600;font-size:clamp(1.05rem,2vw,1.4rem);letter-spacing:-.015em}
+.exp .rl{color:var(--mid);font-size:.95rem}
 .exp .yr{color:var(--mid);font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap}
-.exp .row.now .yr{color:var(--ink);font-weight:700}
-.exp .row.now .yr::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#1c8f4e;margin-right:8px;vertical-align:1px}
 
 /* ===== contact ===== */
 .contact{text-align:center;padding-top:clamp(80px,13vh,150px);padding-bottom:clamp(80px,13vh,150px)}
@@ -320,6 +318,8 @@ footer .fin b{color:var(--ink);font-weight:600}
 .pfacts .f .v{font-weight:600;font-size:.98rem;letter-spacing:-.01em;line-height:1.35}
 
 .pimg{border-radius:var(--r);overflow:hidden;box-shadow:var(--sh)}
+.pimg img{width:100%;height:100%;object-fit:cover;display:block}
+.pimg.tall img{aspect-ratio:16/10}
 .pimg .ph{aspect-ratio:16/9}
 .pimg.tall .ph{aspect-ratio:16/10}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,28px)}
@@ -375,8 +375,9 @@ footer .fin b{color:var(--ink);font-weight:600}
   .plist{grid-template-columns:1fr}
   .pcard .media{aspect-ratio:4/3.1}
   .pcard.wide .media{aspect-ratio:16/9}
-  .exp .ico{width:42px;height:42px;border-radius:11px}
-  .exp .yr{font-size:12px}
+  .exp .row{grid-template-columns:auto 1fr auto;grid-template-areas:"ico co yr" "ico rl yr";row-gap:2px}
+  .exp .ico{grid-area:ico;width:42px;height:42px;border-radius:11px}
+  .exp .co{grid-area:co}.exp .rl{grid-area:rl}.exp .yr{grid-area:yr}
 }
 @media(max-width:560px){
   .xgrid,.numgrid,.metrics,.two{grid-template-columns:1fr}
@@ -411,244 +412,120 @@ footer .fin b{color:var(--ink);font-weight:600}
 </head>
 <body id="top">
 
+<div class="progress" aria-hidden="true"><div class="pb" id="pb"></div></div>
+
 <header id="hd">
   <div class="wrap nav">
-    <a class="logo" href="#top"><img class="mark" src="ga-logo.png" alt="GA"><span class="lname">Guido Avogadro</span></a>
+    <a class="logo" href="index.html"><img class="mark" src="ga-logo.png" alt="GA"><span class="lname">Guido Avogadro</span></a>
     <nav class="links">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#competencies">Competencies</a>
-      <a href="#experience">Experience</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#expertise">Expertise</a>
     </nav>
-    <a class="btn dark sm" href="#contact"><span class="lw"><span class="l">Get in touch</span><span class="l dup">Get in touch</span></span></a>
+    <a class="btn dark sm" href="index.html#contact"><span class="lw"><span class="l">Get in touch</span><span class="l dup">Get in touch</span></span></a>
   </div>
 </header>
 
 <main>
 
   <!-- HERO -->
-  <section class="hero wrap" id="hero">
-    <div class="grid">
-      <div>
-        <div class="kick rv">Senior Product Designer &middot; 13+ years of experience</div>
-        <h1>
-          <span class="ln"><span>Cool mind.</span></span>
-          <span class="ln"><span>Business impact.</span></span>
-          <span class="ln"><span class="soft">Human heart.</span></span>
-        </h1>
-        <div class="ctas rv d1">
-          <a class="btn dark" href="#contact"><span class="lw"><span class="l">Get in touch</span><span class="l dup">Get in touch</span></span></a>
-          <a class="btn ghost" href="#work"><span class="lw"><span class="l">See my work</span><span class="l dup">See my work</span></span></a>
-        </div>
-      </div>
-      <div class="pcardio rv d2">
-        <div class="photo">
-          <img src="photo-1.jpg" alt="Guido Avogadro, smiling in front of the Perito Moreno glacier">
-          <img class="alt2" src="photo-2.jpg" alt="" aria-hidden="true">
-        </div>
-        <span class="chip badge1"><span class="dot"></span>Available for new projects</span>
-        <span class="chip badge2"><span class="em">&#127462;&#127479;</span>Buenos Aires &middot; GMT&minus;3</span>
-      </div>
+  <section class="phero wrap">
+    <a class="btn ghost sm back" href="index.html#work"><span class="lw"><span class="l">&larr; All projects</span><span class="l dup">&larr; All projects</span></span></a>
+    <h1 class="rv">Meals people come back to</h1>
+    <p class="lede rv d1">CookUnity is a chef-to-consumer platform that delivers restaurant-quality meals on a weekly subscription. I joined as the founding product designer when the product was still early, and helped shape every layer of the experience: onboarding, weekly menu, dietary preferences, delivery management and the design system that made all of it consistent at scale.</p>
+    <div class="pfacts rv d2">
+      <div class="f"><div class="k">Client</div><div class="v">CookUnity</div></div>
+      <div class="f"><div class="k">Industry</div><div class="v">FoodTech</div></div>
+      <div class="f"><div class="k">Year</div><div class="v">2021&ndash;2023</div></div>
+      <div class="f"><div class="k">Role</div><div class="v">Founding Product Designer</div></div>
     </div>
   </section>
 
-  <!-- LOGO MARQUEE -->
-  <!-- Drop company logos into /logos as logo-01.svg ... logo-10.svg (any format works,
-       CSS desaturates them). Missing files fall back to a "Logo NN" slot so you can
-       see how many are live. Both sets must stay identical for the seamless loop. -->
-  <div class="lmq" aria-label="Companies I have worked with">
-    <div class="track">
-      <span class="li"><img src="logos/brands/cookunity.svg" alt="Logo 01" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Logo 01',className:'fb'}))"></span>
-      <span class="li"><img src="logos/brands/despegar.png" alt="Logo 02" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Logo 02',className:'fb'}))"></span>
-      <span class="li"><img src="logos/brands/thomson-reuters.svg" alt="Logo 03" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Logo 03',className:'fb'}))"></span>
-      <span class="li"><img src="logos/brands/designlab.svg" alt="Logo 04" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Logo 04',className:'fb'}))"></span>
-      <span class="li"><img src="logos/brands/vaio.svg" alt="Logo 05" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Logo 05',className:'fb'}))"></span>
-      <span class="li"><img src="logos/brands/nokia.svg" alt="Logo 06" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Logo 06',className:'fb'}))"></span>
-      <span class="li"><img src="logos/brands/movebuddha.png" alt="Logo 07" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Logo 07',className:'fb'}))"></span>
-      <span class="li"><img src="logos/brands/ruta0.png" alt="Logo 08" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Logo 08',className:'fb'}))"></span>
-      <span class="li"><img src="logos/brands/cookunity.svg" alt="Logo 01" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Logo 01',className:'fb'}))"></span>
-      <span class="li"><img src="logos/brands/despegar.png" alt="Logo 02" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Logo 02',className:'fb'}))"></span>
-      <span class="li"><img src="logos/brands/thomson-reuters.svg" alt="Logo 03" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Logo 03',className:'fb'}))"></span>
-      <span class="li"><img src="logos/brands/designlab.svg" alt="Logo 04" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Logo 04',className:'fb'}))"></span>
-      <span class="li"><img src="logos/brands/vaio.svg" alt="Logo 05" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Logo 05',className:'fb'}))"></span>
-      <span class="li"><img src="logos/brands/nokia.svg" alt="Logo 06" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Logo 06',className:'fb'}))"></span>
-      <span class="li"><img src="logos/brands/movebuddha.png" alt="Logo 07" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Logo 07',className:'fb'}))"></span>
-      <span class="li"><img src="logos/brands/ruta0.png" alt="Logo 08" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Logo 08',className:'fb'}))"></span>
-    </div>
-  </div>
+  <!-- HERO IMAGE -->
+  <section class="wrap rv">
+    <div class="pimg tall"><img src="cu-hero.jpg" alt="CookUnity weekly menu on mobile"></div>
+  </section>
 
-  <!-- WORK -->
-  <section class="sec wrap" id="work">
-    <div class="sec-head rv">
-      <h2>Featured projects</h2>
-      <p class="sub">Four products where design moved the number that mattered.</p>
-    </div>
-    <div class="plist">
+  <!-- BIG STATEMENT -->
+  <section class="pstmt wrap">
+    <h2 class="rv">CookUnity&reg; connects people with meals made by real chefs. <span class="soft">My job was making a recurring, high-frequency decision feel effortless, week after week, for hundreds of thousands of members.</span></h2>
+  </section>
 
-      <a class="pcard rv" href="project-1.html">
-        <div class="media">
-          <div class="inner"><div class="ph"><img src="cu-home.png" alt="Featured Project 1">
-        </div></div>
-          <span class="arrow">&rarr;</span>
-        </div>
-        <div class="cap"><span class="t">CookUnity</span><span class="m">FoodTech Subscription &middot; 2021</span></div>
-      </a>
+  <!-- PROJECT GOAL -->
+  <section class="psec wrap">
+    <h2 class="rv">Project goal</h2>
+    <p class="desc rv d1">A subscription does not win on the first order. It wins on the fifth. When I joined, the product had real traction but real friction too: an onboarding that asked for commitment before showing the product, a menu with hundreds of meals and no smart way through it, and account controls that made pausing harder than canceling. The goal was to fix every one of those leaks and build the design foundation that would let the team keep fixing them as the catalog and member base grew.</p>
+    <div class="pimg rv d2"><img src="cu-detail-0.png" alt="CookUnity flow: sort and filter, browse meals, add to cart"></div>
+  </section>
 
-      <a class="pcard rv" href="project-2.html">
-        <div class="media">
-          <div class="inner"><div class="ph"><img src="mb-home.jpg" alt="Featured Project 2"></div></div>
-          <span class="arrow">&rarr;</span>
-        </div>
-        <div class="cap"><span class="t">MoveBuddha</span><span class="m">Relocation Services &middot; 2025</span></div>
-      </a>
-
-      <a class="pcard rv" href="project-3.html" data-protected="true">
-        <div class="media">
-          <div class="inner"><div class="ph"><img src="st-home.png" alt="Featured Project 3"></div></div>
-          <span class="arrow">&rarr;</span>
-        </div>
-        <div class="cap"><span class="t">Staircase</span><span class="m">PropTech + B2B SaaS &middot; 2023</span></div>
-      </a>
-
-      <a class="pcard rv" href="#">
-        <div class="media">
-          <div class="inner"><div class="ph"><img src="rt-home.png" alt="Featured Project 4"></div></div>
-          <span class="arrow">&rarr;</span>
-        </div>
-        <div class="cap"><span class="t">Ruta 0</span><span class="m">Route planner &middot; 2026</span></div>
-      </a>
-
+  <!-- PROBLEMS -->
+  <section class="psec wrap">
+    <h2 class="rv">Problems</h2>
+    <p class="desc rv d1">Interviews with new members and cancellation data pointed to three failure modes costing the business at every stage of the funnel.</p>
+    <div class="numgrid">
+      <div class="numcard rv"><div class="n">01</div><h3>Too many steps to value</h3><p>New members had to commit to a plan, enter payment and confirm an address before they could see what they were actually buying. Most dropped before the first meal.</p></div>
+      <div class="numcard rv d1"><div class="n">02</div><h3>Menu paralysis</h3><p>A catalog of 100+ chef-made meals refreshed weekly is a product strength, but without smart filtering it read as a wall. Members spent more energy deciding than enjoying.</p></div>
+      <div class="numcard rv d2"><div class="n">03</div><h3>No control, so people left</h3><p>Skipping a week, pausing or changing a delivery required contacting support. Members who hit a busy stretch cancelled instead of pausing, and rarely came back.</p></div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="sec wrap about" id="about">
-    <div class="grid">
-      <div class="pic rv">
-        <img src="photo-about.jpg" alt="Guido Avogadro in front of the Taiko-bashi bridge in Osaka, Japan">
-      </div>
-      <div class="rv d1">
-        <h2>Nice to meet you, I&rsquo;m Guido</h2>
-        <p>Senior product designer with 13+ years across travel, fintech, enterprise and DTC. I lead research, build design systems and ship end to end.</p>
-        <p>I came up through advertising and web development, so I move from problem framing to pixels to front-end without friction. Engineers get feasible designs. Stakeholders get decisions backed by data.</p>
-        <div class="langs">
-          <span class="chip"><span class="em">&#127466;&#127480;</span>Hablo espa&ntilde;ol</span>
-          <span class="chip"><span class="em">&#127468;&#127463;</span>I speak English</span>
-          <span class="chip"><span class="em">&#127463;&#127479;</span>Falo portugu&ecirc;s</span>
-        </div>
-      </div>
+  <!-- SOLUTIONS -->
+  <section class="psec wrap">
+    <h2 class="rv">Solutions</h2>
+    <div class="numgrid">
+      <div class="numcard sol rv"><div class="n">01</div><h3>Value before commitment</h3><p>Redesigned onboarding so members browse real chef meals and set their preferences first. Plan selection and payment come last, once the product has made its case.</p></div>
+      <div class="numcard sol rv d1"><div class="n">02</div><h3>A menu that knows you</h3><p>Built a preference system that filters by protein, diet and past orders, surfacing a curated set of relevant meals with live counts as selections change. Less scrolling, faster decisions.</p></div>
+      <div class="numcard sol rv d2"><div class="n">03</div><h3>Full self-serve control</h3><p>Brought skip, pause, reschedule and meal swaps into the app with clear deadlines and billing always visible. Giving members control kept them in the subscription instead of out of it.</p></div>
     </div>
   </section>
 
-  <!-- EXPERTISE -->
-  <section class="sec wrap" id="competencies">
-    <div class="sec-head rv">
-      <h2>Core Competencies</h2>
-    </div>
-    <div class="xgrid">
-      <div class="xcard rv"><div class="xic"><svg class="ic ic-bars" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect class="b1" x="3.5" y="13" width="4.4" height="8" rx="1"/><rect class="b2" x="9.8" y="8.5" width="4.4" height="12.5" rx="1"/><rect class="b3" x="16.1" y="3.5" width="4.4" height="17.5" rx="1"/></svg></div><h3>Conversion &amp; CRO</h3><p>Finding where intent leaks and closing the gap, from checkout to sign-up.</p></div>
-      <div class="xcard rv d1"><div class="xic"><svg class="ic ic-loop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><polyline points="20 3.5 20 8 15.5 8"/></svg></div><h3>End-to-end product design</h3><p>From first research session to shipped interface. I own the whole problem.</p></div>
-      <div class="xcard rv d2"><div class="xic"><svg class="ic ic-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" aria-hidden="true"><rect class="g1" x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect class="g2" x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect class="g3" x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect class="g4" x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg></div><h3>Design systems</h3><p>Components and rules that let teams ship faster without drifting.</p></div>
-      <div class="xcard rv"><div class="xic"><svg class="ic ic-mag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><line x1="15.2" y1="15.2" x2="20.5" y2="20.5"/></svg></div><h3>Research &amp; framing</h3><p>The real problem first, screens second. Data over opinions.</p></div>
-      <div class="xcard rv d1"><div class="xic"><svg class="ic ic-rows" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line class="r1" x1="3.5" y1="6" x2="20.5" y2="6"/><line class="r2" x1="3.5" y1="12" x2="16" y2="12"/><line class="r3" x1="3.5" y1="18" x2="20.5" y2="18"/></svg></div><h3>Data-dense UX</h3><p>Tools used eight hours a day, built for speed and certainty.</p></div>
-      <div class="xcard rv d2"><div class="xic"><svg class="ic ic-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline class="lb" points="8 6.5 3 12 8 17.5"/><polyline class="rb" points="16 6.5 21 12 16 17.5"/><line class="sl" x1="13.5" y1="5" x2="10.5" y2="19"/></svg></div><h3>Front-end fluency</h3><p>I prototype in code and speak the engineers&rsquo; language.</p></div>
+  <!-- MENU & FILTERING -->
+  <section class="psec wrap">
+    <h2 class="rv">Meal Cards</h2>
+    <p class="desc rv d1">The meal card is the atomic unit of the weekly decision. Each one leads with a full-bleed food photo and surfaces the signals members actually use to choose: rating, calories, dietary badges, chef name and price difference from the base plan. Labels like Featured, New and Previously Ordered reduce scanning time and reward familiarity without being intrusive.</p>
+    <div class="pimg rv d2"><img src="cu-detail-3.png" alt="CookUnity menu filter bottom sheet"></div>
+  </section>
+
+  <!-- Menu & filtering -->
+  <section class="psec wrap">
+    <h2 class="rv">Set your preferences</h2>
+    <p class="desc rv d1">Preferences are the engine behind relevance. Members set their protein types and dietary goals once, and the system uses those signals to rank and filter every weekly menu automatically. A live meal count updates as selections change, making it immediately clear how each choice affects availability. The result is a catalog that feels curated rather than overwhelming.</p>
+    <div class="two rv d2">
+      <div class="pimg"><img src="cu-detail-4.png" alt="CookUnity meal cards"></div>
+      <div class="pimg"><img src="cu-detail-5.png" alt="CookUnity dietary preferences"></div>
     </div>
   </section>
 
-  <!-- SKILLS — typographic index, no pills -->
-  <section class="sec wrap" id="skills">
-    <div class="sec-head rv">
-      <h2>Skills</h2>
-      <p class="sub">The toolkit behind the work, indexed.</p>
-    </div>
-    <div class="skills rv">
-      <div class="cols">
-        <div>
-          <h3>Design</h3>
-          <ol>
-            <li>User experience (UX)</li>
-            <li>User interface (UI)</li>
-            <li>Conversion design (CRO)</li>
-            <li>Design systems</li>
-            <li>Prototyping</li>
-            <li>Wireframing</li>
-            <li>Information architecture</li>
-          </ol>
-        </div>
-        <div>
-          <h3>Process</h3>
-          <ol>
-            <li>User research</li>
-            <li>A/B testing &amp; experimentation</li>
-            <li>Stakeholder communication</li>
-            <li>Cross-functional collaboration</li>
-            <li>Problem framing</li>
-            <li>Design mentorship</li>
-          </ol>
-        </div>
-        <div>
-          <h3>Technical</h3>
-          <ol>
-            <li>Figma</li>
-            <li>HTML &amp; CSS</li>
-            <li>Framer</li>
-            <li>Design tokens</li>
-            <li>Analytics &amp; heatmaps</li>
-          </ol>
-        </div>
-      </div>
-    </div>
+  <!-- DESIGN SYSTEM -->
+  <section class="psec wrap">
+    <h2 class="rv">Design system</h2>
+    <p class="desc rv d1">As the team grew, consistency became a product problem. I built and maintained the CookUnity design system: a typography scale using Gilroy and Roboto, a full component library covering buttons, selections, cards, inputs and navigation, a dual-mode color palette for light and dark contexts, and documentation that let engineers ship without a designer in the room for every decision.</p>
+    <div class="pimg rv d2"><img src="cu-detail-6.png" alt="CookUnity design system: typography, components and color palette"></div>
   </section>
 
-  <!-- EXPERIENCE -->
-  <section class="sec wrap exp" id="experience">
-    <div class="sec-head rv">
-      <h2>Experience</h2>
-      <p class="sub">13+ years, startups and large companies alike.</p>
+  <!-- IMPACT -->
+  <section class="psec wrap">
+    <h2 class="rv">Impact</h2>
+    <p class="desc rv d1">The work spanned two years and every layer of the product. During that period CookUnity scaled from thousands to hundreds of thousands of active members, closed a unicorn-valuation funding round and expanded into new markets. I grew from sole designer to leading a team, and the systems built in this period are still in production today.</p>
+    <div class="metrics">
+      <div class="metric rv"><span class="mv">+38%</span><div class="ml">Onboarding completion rate</div></div>
+      <div class="metric rv d1"><span class="mv">+27%</span><div class="ml">Week-4 member retention</div></div>
+      <div class="metric rv d2"><span class="mv">4.8★</span><div class="ml">App Store rating</div></div>
     </div>
-    <div class="rv">
-<!-- Company logos live in /logos/companies/ as <name>.png (256x256).
-           Missing files fall back to initials. -->
-      <div class="row now">
-        <span class="ico"><img src="logos/companies/purple-fire.png" alt="PurpleFire logo" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'PF',className:'ini'}))"></span>
-        <span class="who"><span class="co">PurpleFire</span><span class="rl">Lead UX/UI Designer</span></span>
-        <span class="yr">Dec 2023 &ndash; Now</span>
-      </div>
-      <div class="row">
-        <span class="ico"><img src="logos/companies/staircase.png" alt="Staircase logo" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'St',className:'ini'}))"></span>
-        <span class="who"><span class="co">Staircase</span><span class="rl">Product Designer</span></span>
-        <span class="yr">Jul 2021 &ndash; Nov 2023</span>
-      </div>
-      <div class="row">
-        <span class="ico"><img src="logos/companies/cookunity.png" alt="CookUnity logo" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'CU',className:'ini'}))"></span>
-        <span class="who"><span class="co">CookUnity</span><span class="rl">Senior &rarr; Lead Product Designer</span></span>
-        <span class="yr">Jun 2019 &ndash; Mar 2021</span>
-      </div>
-      <div class="row">
-        <span class="ico"><img src="logos/companies/thomson-reuters.png" alt="Thomson Reuters logo" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'TR',className:'ini'}))"></span>
-        <span class="who"><span class="co">Thomson Reuters</span><span class="rl">Senior UX Designer</span></span>
-        <span class="yr">Aug 2018 &ndash; Dec 2018</span>
-      </div>
-      <div class="row">
-        <span class="ico"><img src="logos/companies/despegar.png" alt="Despegar logo" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'De',className:'ini'}))"></span>
-        <span class="who"><span class="co">Despegar</span><span class="rl">UX Designer</span></span>
-        <span class="yr">Jun 2013 &ndash; Aug 2018</span>
-      </div></div>
+    <p class="mnote">Onboarding and retention figures reflect changes measured against pre-redesign baselines. Member count reflects platform scale during the engagement period.</p>
   </section>
 
-  <!-- CONTACT -->
-  <section class="contact wrap" id="contact">
-    <span class="chip rv"><span class="dot"></span>Available for new projects</span>
-    <h2 class="rv">Let&rsquo;s collaborate</h2>
-    <p class="sub rv d1">Write me an email and I&rsquo;ll respond within one business day.</p>
-    <div class="mailrow rv d2">
-      <span class="mail" id="mail">hi@guidoavogadro.com</span>
-      <button class="btn dark copybtn" id="copy">
-        <span class="lw"><span class="l">Copy</span><span class="l dup">Copy</span></span>
-        <span class="ok">Copied!</span>
-      </button>
-    </div>
-    <p class="note rv d3">Open to senior product design roles and selective freelance. Remote, worldwide.</p>
+  <!-- THANKS + NEXT -->
+  <section class="thanks wrap">
+    <span class="em rv">&#128075;</span>
+    <h2 class="rv d1">Thank you for viewing!</h2>
+    <a class="pcard wide rv d2" href="project-2.html">
+      <div class="media">
+        <div class="inner"><img src="mb-home.jpg" alt="CookUnity design system: typography, components and color palette"></div>
+        <span class="arrow">&rarr;</span>
+      </div>
+      <div class="cap"><span class="t">MoveBuddha</span><span class="m">Relocation Services &middot; 2025</span></div>
+    </a>
   </section>
 
 </main>
@@ -661,110 +538,14 @@ footer .fin b{color:var(--ink);font-weight:600}
 </footer>
 
 <script>
-// nav
-var hd=document.getElementById('hd');
-addEventListener('scroll',function(){hd.classList.toggle('scrolled',scrollY>40)},{passive:true});
-
-// hero line reveal on load
-addEventListener('load',function(){document.getElementById('hero').classList.add('ready')});
-setTimeout(function(){document.getElementById('hero').classList.add('ready')},600); // fallback
-
-// scroll reveals
+var hd=document.getElementById('hd'),pb=document.getElementById('pb');
+addEventListener('scroll',function(){
+  hd.classList.toggle('scrolled',scrollY>40);
+  var max=document.documentElement.scrollHeight-innerHeight;
+  pb.style.transform='scaleX('+(max>0?Math.min(scrollY/max,1):0)+')';
+},{passive:true});
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
 document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
-
-// subtle parallax on project covers (pointer + motion allowed)
-if(matchMedia('(hover:hover)').matches && !matchMedia('(prefers-reduced-motion:reduce)').matches){
-  var medias=Array.prototype.slice.call(document.querySelectorAll('.pcard .media .inner'));
-  var ticking=false;
-  function para(){
-    medias.forEach(function(m){
-      var r=m.parentElement.getBoundingClientRect();
-      if(r.bottom<0||r.top>innerHeight)return;
-      var p=(r.top+r.height/2-innerHeight/2)/innerHeight;
-      m.style.transform='translateY('+(p*-26)+'px)';
-    });
-    ticking=false;
-  }
-  addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(para)}},{passive:true});
-  para();
-}
-
-// email copy
-var btn=document.getElementById('copy');
-btn.addEventListener('click',function(){
-  var t=document.getElementById('mail').textContent.trim();
-  function done(){btn.classList.add('copied');setTimeout(function(){btn.classList.remove('copied')},1600)}
-  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done)}
-  else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);done()}
-});
-</script>
-
-<!-- PASSWORD MODAL -->
-<div id="pw-overlay">
-  <div class="pw-box">
-    <button id="pw-close">&times;</button>
-    <p class="pw-label">Protected</p>
-    <h3 class="pw-title">Case study access</h3>
-    <p class="pw-sub">Enter the password to view this project.</p>
-    <input id="pw-input" type="password" placeholder="Password">
-    <p id="pw-error">Incorrect password. Try again.</p>
-    <button id="pw-submit">View project &rarr;</button>
-  </div>
-</div>
-
-<style>
-#pw-overlay{position:fixed;inset:0;z-index:200;background:rgba(18,18,18,.55);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
-#pw-overlay.show{opacity:1;pointer-events:all}
-.pw-box{background:#fff;border-radius:24px;padding:40px;width:100%;max-width:380px;margin:0 20px;box-shadow:0 32px 80px -20px rgba(18,18,18,.35);position:relative}
-#pw-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;border:1px solid rgba(18,18,18,.12);display:flex;align-items:center;justify-content:center;font-size:18px;color:#6f6e68;cursor:pointer;background:#fff;line-height:1}
-.pw-label{font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#b6b5af;margin-bottom:10px}
-.pw-title{font-family:'Manrope',sans-serif;font-size:1.3rem;font-weight:700;letter-spacing:-.02em;margin-bottom:6px}
-.pw-sub{font-size:.9rem;color:#6f6e68;margin-bottom:24px}
-#pw-input{width:100%;border:1px solid rgba(18,18,18,.15);border-radius:12px;padding:13px 16px;font-size:1rem;font-family:'Lato',sans-serif;outline:none;margin-bottom:8px;box-sizing:border-box;transition:border-color .2s}
-#pw-input:focus{border-color:#121212}
-#pw-error{font-size:13px;color:#c0392b;margin-bottom:12px;opacity:0;transition:opacity .2s;min-height:18px}
-#pw-error.show{opacity:1}
-#pw-submit{width:100%;background:#121212;color:#fff;border:none;border-radius:100px;padding:14px;font-family:'Manrope',sans-serif;font-size:15px;font-weight:600;cursor:pointer}
-</style>
-
-<script>
-(function(){
-  var PASS='obvious';
-  var overlay=document.getElementById('pw-overlay');
-  var input=document.getElementById('pw-input');
-  var submitBtn=document.getElementById('pw-submit');
-  var closeBtn=document.getElementById('pw-close');
-  var errorEl=document.getElementById('pw-error');
-  var pendingHref=null;
-
-  document.querySelectorAll('a.pcard[data-protected]').forEach(function(card){
-    card.addEventListener('click',function(e){
-      e.preventDefault();
-      pendingHref=card.getAttribute('href');
-      input.value='';
-      errorEl.classList.remove('show');
-      overlay.classList.add('show');
-      setTimeout(function(){input.focus()},80);
-    });
-  });
-
-  function attempt(){
-    if(input.value===PASS){
-      overlay.classList.remove('show');
-      window.location.href=pendingHref;
-    } else {
-      errorEl.classList.add('show');
-      input.value='';
-      input.focus();
-    }
-  }
-
-  submitBtn.addEventListener('click',attempt);
-  input.addEventListener('keydown',function(e){if(e.key==='Enter')attempt()});
-  closeBtn.addEventListener('click',function(){overlay.classList.remove('show')});
-  overlay.addEventListener('click',function(e){if(e.target===overlay)overlay.classList.remove('show')});
-})();
 </script>
 </body>
 </html>
