@@ -134,7 +134,9 @@ header.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(14px);box-
   font-weight:700;max-width:20ch;margin-bottom:clamp(24px,4vh,40px);
 }
 .hero .kick{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--mid);margin-bottom:clamp(18px,3vh,28px)}
-.hero .kick::before{content:"";width:22px;height:1px;background:var(--ink)}
+.hero .kick::before {
+  display: none;
+}
 .hero h1 .soft{color:var(--mid)}
 .hero h1 .ln{display:block;overflow:hidden}
 .hero h1 .ln>span{display:block;transform:translateY(112%);transition:transform .9s var(--ease)}
@@ -455,11 +457,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="hero wrap" id="hero">
     <div class="grid">
       <div>
-        <div class="kick rv">Senior Product Designer &middot; 13+ years of experience</div>
+        <div class="kick rv">Senior Product Designer &middot; 13+ years</div>
         <h1>
-          <span class="ln"><span>Cool mind.</span></span>
-          <span class="ln"><span>Business impact.</span></span>
-          <span class="ln"><span class="soft">Human heart.</span></span>
+          <span class="ln"><span>I make digital products simple and intuitive.</span></span>
         </h1>
         <div class="ctas rv d1">
           <a class="btn dark" href="#contact"><span class="lw"><span class="l">Get in touch</span><span class="l dup">Get in touch</span></span></a>
