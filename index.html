@@ -143,18 +143,16 @@ header.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(14px);box-
 /* ===== hero ===== */
 .hero{padding-top:clamp(120px,16vh,180px);padding-bottom:clamp(56px,8vh,96px)}
 .hero .grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(28px,5vw,72px);align-items:center}
-.hero h1 .ln{
-  display:block;
-  overflow:hidden;
-  padding-bottom:.10em;
-  margin-bottom:-.10em;
+.hero h1{
+  font-size:clamp(2.5rem,5.8vw,4.9rem);line-height:1.05;letter-spacing:-.034em;
+  font-weight:700;max-width:20ch;margin-bottom:clamp(24px,4vh,40px);
 }
 .hero .kick{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--mid);margin-bottom:clamp(18px,3vh,28px)}
 .hero .kick::before {
   display: none;
 }
 .hero h1 .soft{color:var(--mid)}
-.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
 .hero h1 .ln>span{display:block;transform:translateY(112%);transition:transform .9s var(--ease)}
 .hero.ready h1 .ln:nth-child(1)>span{transition-delay:.05s}
 .hero.ready h1 .ln:nth-child(2)>span{transition-delay:.14s}
