@@ -48,7 +48,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    Warm paper ground, big rounded cards, label-slide buttons.
    ============================================================ */
 :root{
-  --bg:#ffffff;
+  --bg:#fafafa;
   --card:#ffffff;
   --ink:#121212;
   --mid:#6f6e68;
@@ -443,6 +443,66 @@ footer .fin b{color:var(--ink);font-weight:600}
   .contact h2{font-size:clamp(2rem,9vw,2.8rem)}
 }
 
+
+/* ===== floating WhatsApp contact ===== */
+.whatsapp-float{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  z-index:100;
+  width:58px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#25D366;
+  color:#fff;
+  box-shadow:0 10px 28px rgba(18,18,18,.20);
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+}
+.whatsapp-float:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 34px rgba(18,18,18,.25);
+}
+.whatsapp-float:active{transform:scale(.95)}
+.whatsapp-float svg{width:29px;height:29px;display:block}
+.whatsapp-float .wa-label{
+  position:absolute;
+  right:70px;
+  top:50%;
+  transform:translateY(-50%) translateX(6px);
+  background:var(--ink);
+  color:#fff;
+  border-radius:10px;
+  padding:8px 11px;
+  font-family:var(--disp);
+  font-size:12px;
+  font-weight:600;
+  white-space:nowrap;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .2s,transform .2s;
+}
+.whatsapp-float:hover .wa-label,
+.whatsapp-float:focus-visible .wa-label{
+  opacity:1;
+  transform:translateY(-50%) translateX(0);
+}
+@media(max-width:560px){
+  .whatsapp-float{
+    right:18px;
+    bottom:18px;
+    width:54px;
+    height:54px;
+  }
+  .whatsapp-float svg{width:27px;height:27px}
+  .whatsapp-float .wa-label{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .whatsapp-float{transition:none}
+}
+
 </style>
 </head>
 <body id="top">
@@ -812,5 +872,20 @@ btn.addEventListener('click',function(){
   overlay.addEventListener('click',function(e){if(e.target===overlay)overlay.classList.remove('show')});
 })();
 </script>
+
+<!-- Floating WhatsApp contact -->
+<a
+  class="whatsapp-float"
+  href="https://api.whatsapp.com/send?phone=5491173600120"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat with Guido on WhatsApp"
+>
+  <span class="wa-label" aria-hidden="true">Chat on WhatsApp</span>
+  <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+    <path fill="currentColor" d="M16 3.5a12.45 12.45 0 0 0-10.7 18.8L3.5 28.5l6.4-1.68A12.5 12.5 0 1 0 16 3.5Zm0 22.8a10.3 10.3 0 0 1-5.25-1.43l-.38-.23-3.8 1 1.02-3.7-.25-.4A10.3 10.3 0 1 1 16 26.3Zm5.65-7.7c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.08-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5s1.07 2.9 1.22 3.1c.15.2 2.1 3.2 5.08 4.48.71.3 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+  </svg>
+</a>
+
 </body>
 </html>
