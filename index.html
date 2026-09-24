@@ -886,24 +886,6 @@ btn.addEventListener('click',function(){
 </a>
 
 
-<script>
-/* Sleeping state: when the visitor leaves this tab, the next return opens sleeping.html. */
-(function(){
-  var hasLeft = false;
-  var sleepUrl = 'sleeping.html';
-
-  document.addEventListener('visibilitychange', function(){
-    if(document.hidden){
-      hasLeft = true;
-      return;
-    }
-
-    if(hasLeft){
-      window.location.href = sleepUrl;
-    }
-  });
-})();
-</script>
 
 </body>
 </html>

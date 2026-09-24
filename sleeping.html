@@ -711,6 +711,15 @@ html.sleeping-dark .hero .grid{
   width:100%;
 }
 
+
+.sleeping-copy{
+  margin:22px 0 0;
+  max-width:520px;
+  font:400 clamp(17px,1.45vw,21px)/1.55 var(--sans);
+  color:#aaa;
+}
+html.sleeping-dark .sleeping-copy{color:#aaa}
+
 </style>
 </head>
 <body id="top">
@@ -1019,9 +1028,7 @@ if(matchMedia('(hover:hover)').matches && !matchMedia('(prefers-reduced-motion:r
   function sleep(){ hero.classList.add('sleeping'); }
   function wake(){ hero.classList.remove('sleeping'); }
 
-  document.addEventListener('visibilitychange',function(){
-    if(document.hidden) sleep();
-  });
+  
 
   addEventListener('blur',sleep);
 
