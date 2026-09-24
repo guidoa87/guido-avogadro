@@ -515,6 +515,22 @@ html.sleeping-dark .chip{background:#191919;color:#fff;border-color:rgba(255,255
 html.sleeping-dark .hero .badge1 .dot,html.sleeping-dark .hero .badge1 .dot::after{background:#d12f2f}
 html.sleeping-dark .hero .photo{box-shadow:0 24px 60px -30px rgba(0,0,0,.8)}
 </style>
+
+<style id="sleeping-zzz">
+.sleeping-zzz{position:absolute;top:8%;right:8%;z-index:3;pointer-events:none;color:#fff;font-family:var(--disp);font-weight:800;line-height:1}
+.sleeping-zzz span{position:absolute;right:0;bottom:0;opacity:0;transform:translate(0,10px) scale(.75) rotate(8deg);animation:zzzFloat 3.2s ease-in-out infinite}
+.sleeping-zzz .z1{font-size:20px;animation-delay:0s}
+.sleeping-zzz .z2{font-size:27px;right:22px;bottom:22px;animation-delay:.8s}
+.sleeping-zzz .z3{font-size:36px;right:48px;bottom:52px;animation-delay:1.6s}
+@keyframes zzzFloat{
+0%,15%{opacity:0;transform:translate(0,10px) scale(.75) rotate(8deg)}
+35%{opacity:.9}
+75%{opacity:.55;transform:translate(12px,-28px) scale(1) rotate(-4deg)}
+100%{opacity:0;transform:translate(18px,-46px) scale(1.08) rotate(-8deg)}
+}
+@media(prefers-reduced-motion:reduce){.sleeping-zzz span{animation:none;opacity:.8}}
+</style>
+
 </head>
 <body id="top">
 
@@ -544,14 +560,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div>
         <div class="kick rv">Senior Product Designer &middot; 13+ years</div>
         <h1>
-          <span class="ln"><span>You left. I took a nap.</span></span>
+          <span class="ln"><span>I make complicated things click.</span></span>
         </h1>
-        <p class="sleeping-copy rv d1">Designers sleep whenever they can.<br><span class="wake-prompt">Move, tap or swipe to wake me up.</span></p>
+        <p class="sleeping-copy rv d1">You left. I took a nap.<br>Designers sleep whenever they can.<br><span class="wake-prompt">Move, tap or swipe to wake me up.</span></p>
       </div>
       <div class="pcardio rv d2">
         <div class="photo">
           <img src="photo-3.png" alt="Guido Avogadro sleeping">
         </div>
+        <div class="sleeping-zzz" aria-hidden="true"><span class="z1">Z</span><span class="z2">Z</span><span class="z3">Z</span></div>
         <span class="chip badge1"><span class="dot"></span>Sleeping</span>
         <span class="chip badge2"><span class="em">&#127462;&#127479;</span>Buenos Aires &middot; GMT&minus;3</span>
       </div>
