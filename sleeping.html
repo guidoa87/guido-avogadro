@@ -749,14 +749,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="grid">
       <div>
         <div class="kick rv">Senior Product Designer &middot; 13+ years</div>
-        <h1 class="hero-title">
-          <span class="hero-normal">
-            <span class="ln"><span>I make complicated things click.</span></span>
-          </span>
-          <span class="hero-sleeping" aria-hidden="true">
-            <span class="ln"><span>You could be looking at my work right now.</span></span>
-          </span>
-        </h1>
+        <h1>Shhh... I’m off the clock.</h1>
         <div class="ctas rv d1">
           <a class="btn dark hero-cta-primary" href="#contact"><span class="lw"><span class="l">Get in touch</span><span class="l dup">Get in touch</span></span></a>
           <a class="btn ghost hero-cta-secondary" href="#work"><span class="lw"><span class="l">See my work</span><span class="l dup">See my work</span></span></a>
@@ -1166,5 +1159,31 @@ btn.addEventListener('click',function(){
   </svg>
 </a>
 
+<script>
+/* Sleeping state */
+(function(){
+  var root = document.documentElement;
+  var hero = document.getElementById('hero');
+  var awake = false;
+
+  function sleep(){
+    root.classList.add('sleeping-dark');
+    if(hero) hero.classList.add('sleeping');
+  }
+
+  function wake(){
+    if(awake) return;
+    awake = true;
+    window.location.href = 'index.html';
+  }
+
+  sleep();
+
+  window.addEventListener('mousemove', wake, {passive:true, once:true});
+  window.addEventListener('touchstart', wake, {passive:true, once:true});
+  window.addEventListener('touchmove', wake, {passive:true, once:true});
+  window.addEventListener('wheel', wake, {passive:true, once:true});
+})();
+</script>
 </body>
 </html>
