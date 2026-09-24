@@ -501,53 +501,19 @@ footer .fin b{color:var(--ink);font-weight:600}
   .whatsapp-float{transition:none}
 }
 
-
-/* ===== temporary sleeping state ===== */
-html.sleeping-dark,
-html.sleeping-dark body{background:#111;color:#fff}
-html.sleeping-dark ::selection{background:#fff;color:#111}
-html.sleeping-dark header.scrolled{background:rgba(17,17,17,.88);box-shadow:0 1px 0 rgba(255,255,255,.10)}
+</style>
+<style id="sleeping-theme">
+html.sleeping-dark,html.sleeping-dark body{background:#111;color:#fff}
+html.sleeping-dark header.scrolled{background:rgba(17,17,17,.9);box-shadow:0 1px 0 rgba(255,255,255,.10)}
 html.sleeping-dark .nav .logo .mark{filter:invert(1)}
-html.sleeping-dark .nav .logo .lname,
-html.sleeping-dark .nav .links a,
-html.sleeping-dark .hero h1,
-html.sleeping-dark .hero .kick{color:#fff}
+html.sleeping-dark .nav .logo .lname,html.sleeping-dark .nav .links a,html.sleeping-dark .hero h1,html.sleeping-dark .hero .kick{color:#fff}
 html.sleeping-dark .nav .links a:hover{color:#bbb}
 html.sleeping-dark .nav .links a::after{background:#fff}
 html.sleeping-dark .hero .ctas{display:none}
 html.sleeping-dark .sleeping-copy{display:block;max-width:520px;margin-top:0;color:#aaa;font:400 clamp(17px,1.45vw,21px)/1.55 var(--sans)}
 html.sleeping-dark .chip{background:#191919;color:#fff;border-color:rgba(255,255,255,.10);box-shadow:none}
-html.sleeping-dark .hero .badge1 .dot,
-html.sleeping-dark .hero .badge1 .dot::after{background:#d12f2f}
+html.sleeping-dark .hero .badge1 .dot,html.sleeping-dark .hero .badge1 .dot::after{background:#d12f2f}
 html.sleeping-dark .hero .photo{box-shadow:0 24px 60px -30px rgba(0,0,0,.8)}
-html.sleeping-dark .hero .photo .alt2{display:none}
-html.sleeping-dark .sec-head h2,
-html.sleeping-dark .about h2,
-html.sleeping-dark .xcard h3,
-html.sleeping-dark .skills h3,
-html.sleeping-dark .exp .co,
-html.sleeping-dark .contact h2,
-html.sleeping-dark footer .fin b{color:#fff}
-html.sleeping-dark .sec-head .sub,
-html.sleeping-dark .about p,
-html.sleeping-dark .xcard p,
-html.sleeping-dark .exp .rl,
-html.sleeping-dark .exp .yr,
-html.sleeping-dark .contact .sub,
-html.sleeping-dark .contact .note{color:#aaa}
-html.sleeping-dark .xcard,
-html.sleeping-dark .skills,
-html.sleeping-dark .contact .mailrow,
-html.sleeping-dark .exp .ico{background:#191919;border-color:rgba(255,255,255,.10);box-shadow:none;color:#fff}
-html.sleeping-dark .skills h3{border-color:#fff}
-html.sleeping-dark .skills li,
-html.sleeping-dark .exp .row,
-html.sleeping-dark footer{border-color:rgba(255,255,255,.12)}
-html.sleeping-dark .skills li::before{color:#666}
-html.sleeping-dark .pcard .cap .t{color:#fff}
-html.sleeping-dark .pcard .cap .m{color:#aaa}
-html.sleeping-dark .contact .mail{color:#fff}
-
 </style>
 </head>
 <body id="top">
@@ -578,14 +544,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div>
         <div class="kick rv">Senior Product Designer &middot; 13+ years</div>
         <h1>
-          <span class="ln"><span>Shhh... I’m off the clock.</span></span>
+          <span class="ln"><span>I make complicated things click.</span></span>
         </h1>
         <p class="sleeping-copy rv d1">Come back later. I’ll pretend I was never here.</p>
       </div>
       <div class="pcardio rv d2">
         <div class="photo">
           <img src="photo-3.png" alt="Guido Avogadro sleeping">
-          
         </div>
         <span class="chip badge1"><span class="dot"></span>Sleeping</span>
         <span class="chip badge2"><span class="em">&#127462;&#127479;</span>Buenos Aires &middot; GMT&minus;3</span>
@@ -931,22 +896,15 @@ btn.addEventListener('click',function(){
 
 
 
-
 <script>
 (function(){
   document.documentElement.classList.add('sleeping-dark');
-  var awakened=false;
-  function wake(){
-    if(awakened)return;
-    awakened=true;
-    window.location.href='index.html';
-  }
+  function wake(){ window.location.href='index-final.html'; }
   window.addEventListener('mousemove',wake,{passive:true,once:true});
   window.addEventListener('touchstart',wake,{passive:true,once:true});
   window.addEventListener('touchmove',wake,{passive:true,once:true});
   window.addEventListener('wheel',wake,{passive:true,once:true});
 })();
 </script>
-
 </body>
 </html>

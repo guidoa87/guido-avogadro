@@ -887,5 +887,17 @@ btn.addEventListener('click',function(){
 
 
 
+<script>
+(function(){
+  var away = false;
+  document.addEventListener('visibilitychange', function(){
+    if(document.hidden){
+      away = true;
+    }else if(away){
+      window.location.href = 'sleeping-final.html';
+    }
+  });
+})();
+</script>
 </body>
 </html>
