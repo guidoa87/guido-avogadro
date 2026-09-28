@@ -101,16 +101,6 @@ h1,h2,h3,h4{font-family:var(--disp);font-weight:700;letter-spacing:-.02em}
   border:1px solid var(--line-soft);border-radius:100px;padding:8px 14px;
   font-size:13px;font-weight:500;box-shadow:0 8px 24px -14px rgba(18,18,18,.25);
 }
-.chip .dot{position:relative;width:8px;height:8px;border-radius:50%;background:#1c8f4e}
-.chip .dot::after{
-  content:"";position:absolute;inset:0;border-radius:50%;background:#1c8f4e;
-  animation:pulse 2.2s cubic-bezier(.2,.6,.4,1) infinite;
-}
-@keyframes pulse{
-  0%{transform:scale(1);opacity:.65}
-  70%{transform:scale(3);opacity:0}
-  100%{transform:scale(3);opacity:0}
-}
 .chip .em{font-size:1rem;line-height:1}
 
 /* ===== nav ===== */
@@ -177,8 +167,6 @@ header.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(14px);box-
 .hero .photo .pph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:1px dashed var(--faint);border-radius:var(--r)}
 .hero .photo .pph .a{font-weight:700;font-size:1.2rem}
 .hero .photo .pph .b{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--mid);font-weight:600;text-align:center;line-height:1.7}
-.hero .badge1{position:absolute;top:14px;left:14px;z-index:2}
-.hero .badge2{position:absolute;bottom:14px;right:14px;z-index:2}
 
 /* ===== section scaffold ===== */
 .sec{padding-top:clamp(64px,10vh,120px);padding-bottom:clamp(64px,10vh,120px)}
@@ -317,7 +305,6 @@ header.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(14px);box-
 
 /* ===== contact ===== */
 .contact{text-align:center;padding-top:clamp(80px,13vh,150px);padding-bottom:clamp(80px,13vh,150px)}
-.contact .chip{margin-bottom:24px}
 .contact h2{font-size:clamp(2.2rem,6vw,4.4rem);letter-spacing:-.03em;line-height:1.02;margin-bottom:16px}
 .contact .sub{color:var(--mid);max-width:44ch;margin:0 auto clamp(28px,4vh,44px)}
 .contact .mailrow{
@@ -554,8 +541,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <img src="photo-1.jpg" alt="Guido Avogadro, smiling in front of the Perito Moreno glacier">
           <img class="alt2" src="photo-2.jpg" alt="" aria-hidden="true">
         </div>
-        <span class="chip badge1"><span class="dot"></span>Available for new projects</span>
-        <span class="chip badge2"><span class="em">&#127462;&#127479;</span>Buenos Aires &middot; GMT&minus;3</span>
       </div>
     </div>
   </section>
@@ -752,7 +737,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- CONTACT -->
   <section class="contact wrap" id="contact">
-    <span class="chip rv"><span class="dot"></span>Available for new projects</span>
     <h2 class="rv">Let&rsquo;s collaborate</h2>
     <p class="sub rv d1">Write me an email and I&rsquo;ll respond within one business day.</p>
     <div class="mailrow rv d2">
@@ -937,17 +921,5 @@ btn.addEventListener('click',function(){
 
 
 
-<script>
-(function(){
-  var away = false;
-  document.addEventListener('visibilitychange', function(){
-    if(document.hidden){
-      away = true;
-    }else if(away){
-      window.location.href = 'sleeping.html';
-    }
-  });
-})();
-</script>
 </body>
 </html>

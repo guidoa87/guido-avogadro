@@ -101,14 +101,7 @@ h1,h2,h3,h4{font-family:var(--disp);font-weight:700;letter-spacing:-.02em}
   border:1px solid var(--line-soft);border-radius:100px;padding:8px 14px;
   font-size:13px;font-weight:500;box-shadow:0 8px 24px -14px rgba(18,18,18,.25);
 }
-.chip .dot{position:relative;width:8px;height:8px;border-radius:50%;background:#1c8f4e}
-.chip .dot::after{
-  content:"";position:absolute;inset:0;border-radius:50%;background:#1c8f4e;
-  animation:pulse 2.2s cubic-bezier(.2,.6,.4,1) infinite;
-}
-@keyframes pulse{
-  0%{transform:scale(1);opacity:.65}
-  70%{transform:scale(3);opacity:0}
+70%{transform:scale(3);opacity:0}
   100%{transform:scale(3);opacity:0}
 }
 .chip .em{font-size:1rem;line-height:1}
@@ -512,7 +505,6 @@ html.sleeping-dark .nav .links a::after{background:#fff}
 html.sleeping-dark .hero .ctas{display:none}
 html.sleeping-dark .sleeping-copy{display:block;max-width:520px;margin-top:0;color:#aaa;font:400 clamp(17px,1.45vw,21px)/1.55 var(--sans)} html.sleeping-dark .wake-prompt{display:inline-block;margin-top:10px;color:#fff;font-weight:600}
 html.sleeping-dark .chip{background:#191919;color:#fff;border-color:rgba(255,255,255,.10);box-shadow:none}
-html.sleeping-dark .hero .badge1 .dot,html.sleeping-dark .hero .badge1 .dot::after{background:#d12f2f}
 html.sleeping-dark .hero .photo{box-shadow:0 24px 60px -30px rgba(0,0,0,.8)}
 </style>
 
@@ -554,7 +546,7 @@ html.sleeping-dark .hero h1 .ln>span{transform:translateY(0)}
           <img src="photo-3.png" alt="Guido Avogadro sleeping">
         </div>
         <div class="sleeping-zzz" aria-hidden="true"><span class="z1">Z</span><span class="z2">Z</span><span class="z3">Z</span></div>
-        <span class="chip badge1"><span class="dot"></span>Sleeping</span>
+        <span class="chip badge1">Sleeping</span>
         <span class="chip badge2"><span class="em">&#127462;&#127479;</span>Buenos Aires &middot; GMT&minus;3</span>
       </div>
     </div>
