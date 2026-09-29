@@ -495,6 +495,35 @@ footer .fin b{color:var(--ink);font-weight:600}
 }
 
 </style>
+
+<style id="sleeping-timer">
+.nap-timer{
+  margin-top:28px;
+  color:#fff;
+  font-family:var(--disp);
+  font-size:clamp(18px,1.65vw,24px);
+  font-weight:800;
+  line-height:1.1;
+  letter-spacing:-.025em;
+  font-variant-numeric:tabular-nums;
+}
+.nap-timer .timer-label{
+  opacity:.68;
+  margin-right:8px;
+  font-weight:600;
+}
+.nap-timer .timer-value{
+  font-weight:800;
+  letter-spacing:-.035em;
+}
+.nap-timer.is-late{opacity:1}
+.is-waking #sleepHeroTitle{}
+@keyframes wakeTitle{
+  from{opacity:1;transform:translateY(0)}
+  to{opacity:.45;transform:translateY(-6px)}
+}
+</style>
+
 <style id="sleeping-theme">
 html.sleeping-dark,html.sleeping-dark body{background:#111;color:#fff}
 html.sleeping-dark header.scrolled{background:rgba(17,17,17,.9);box-shadow:0 1px 0 rgba(255,255,255,.10)}
@@ -537,30 +566,94 @@ html.sleeping-dark .hero h1 .ln>span{transform:translateY(0)}
       <div>
         <div class="kick rv">Senior Product Designer &middot; 13+ years</div>
         <h1>
-          <span class="ln"><span>You left. I took a nap.</span></span>
+          <span class="ln"><span id="sleepHeroTitle">You left. I napped.</span></span>
         </h1>
         <p class="sleeping-copy rv d1">Designers sleep whenever they can.<br><span class="wake-prompt">Move, tap or swipe to wake me up.</span></p>
+        <div class="nap-timer" id="napTimer" aria-live="polite"><span class="timer-label">Nap duration</span><span class="timer-value">00:00</span></div>
       </div>
       <div class="pcardio rv d2">
         <div class="photo">
           <img src="photo-3.png" alt="Guido Avogadro sleeping">
         </div>
-        <div class="sleeping-zzz" aria-hidden="true"><span class="z1">Z</span><span class="z2">Z</span><span class="z3">Z</span></div>
-        <span class="chip badge1">Sleeping</span>
-        <span class="chip badge2"><span class="em">&#127462;&#127479;</span>Buenos Aires &middot; GMT&minus;3</span>
+        <div class="sleeping-zzz" aria-hidden="true"><span class="z1">Z</span><span class="z2">Z</span><span class="z3">Z</span></div></span>
       </div>
     </div>
   </section>
 
-<script>
+
+
+<script id="sleeping-interaction">
 (function(){
   document.documentElement.classList.add('sleeping-dark');
-  function wake(){ window.location.href='index.html'; }
-  window.addEventListener('mousemove',wake,{passive:true,once:true});
+
+  var timer = document.getElementById('napTimer');
+  var heroTitle = document.getElementById('sleepHeroTitle');
+  var wakePrompt = document.querySelector('.wake-prompt');
+
+  var startedAt = Date.now();
+  var waking = false;
+  var mouseWakeEnabled = false;
+
+  function formatTime(seconds){
+    var minutes = Math.floor(seconds / 60);
+    var secs = seconds % 60;
+    return String(minutes).padStart(2,'0') + ':' + String(secs).padStart(2,'0');
+  }
+
+  function wake(){
+    if(waking) return;
+    window.location.replace('index.html');
+  }
+
+  function startWaking(){
+    if(waking) return;
+    waking = true;
+
+    heroTitle.textContent = "Ok, I'm waking up.";
+    if(timer) timer.classList.add('is-late');
+    if(wakePrompt) wakePrompt.textContent = 'Waking up...';
+
+    document.documentElement.classList.add('is-waking');
+
+    window.setTimeout(function(){
+      window.location.replace('index.html');
+    },1800);
+  }
+
+  function update(){
+    if(waking || !timer || !heroTitle) return;
+
+    var elapsed = Math.floor((Date.now() - startedAt) / 1000);
+    var value = timer.querySelector('.timer-value');
+
+    if(value) value.textContent = formatTime(elapsed);
+
+    if(elapsed >= 15){
+      startWaking();
+    }else if(elapsed >= 10){
+      heroTitle.textContent = 'Ok, awkward.';
+    }else if(elapsed >= 5){
+      heroTitle.textContent = 'Still here?';
+    }else{
+      heroTitle.textContent = 'You left. I napped.';
+    }
+  }
+
+  update();
+  window.setInterval(update,250);
+
+  // Give the page time to render before mouse movement can wake it.
+  window.setTimeout(function(){ mouseWakeEnabled = true; },1200);
+
+  window.addEventListener('mousemove',function(){
+    if(mouseWakeEnabled) wake();
+  },{passive:true});
+
   window.addEventListener('touchstart',wake,{passive:true,once:true});
   window.addEventListener('touchmove',wake,{passive:true,once:true});
   window.addEventListener('wheel',wake,{passive:true,once:true});
 })();
 </script>
+
 </body>
 </html>

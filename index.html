@@ -921,5 +921,50 @@ btn.addEventListener('click',function(){
 
 
 
+
+<script>
+/* Exit intent: open sleeping.html when the visitor leaves through the top edge. */
+(function(){
+  var allowNavigation = false;
+
+  document.addEventListener('click', function(e){
+    var link = e.target.closest && e.target.closest('a');
+    if(link && link.href) allowNavigation = true;
+  }, true);
+
+  document.addEventListener('mouseout', function(e){
+    if(allowNavigation) return;
+    if(e.clientY <= 0 && e.relatedTarget === null){
+      window.location.href = 'sleeping.html';
+    }
+  });
+})();
+</script>
+
+
+<script id="sleeping-exit-intent">
+(function(){
+  var triggered = false;
+  var ready = false;
+
+  window.setTimeout(function(){
+    ready = true;
+  }, 1200);
+
+  document.addEventListener('click', function(e){
+    var link = e.target.closest && e.target.closest('a');
+    if(link && link.href) triggered = true;
+  }, true);
+
+  document.addEventListener('mouseout', function(e){
+    if(!ready || triggered) return;
+    if(e.relatedTarget === null && e.clientY <= 0){
+      triggered = true;
+      window.location.href = 'sleeping.html';
+    }
+  }, true);
+})();
+</script>
+
 </body>
 </html>
