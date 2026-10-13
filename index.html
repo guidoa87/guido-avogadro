@@ -168,6 +168,9 @@ header.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(14px);box-
 .hero .photo .pph .a{font-weight:700;font-size:1.2rem}
 .hero .photo .pph .b{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--mid);font-weight:600;text-align:center;line-height:1.7}
 
+.hero .hero-intro{font-size:clamp(1.05rem,1.5vw,1.25rem);line-height:1.55;max-width:39ch;color:var(--mid);margin-top:-8px;margin-bottom:14px}
+.hero .hero-location{font-size:14px;color:var(--mid);margin-bottom:28px}
+@media(max-width:899px){.hero .hero-location{margin-bottom:24px}}
 /* ===== section scaffold ===== */
 .sec{padding-top:clamp(64px,10vh,120px);padding-bottom:clamp(64px,10vh,120px)}
 .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:clamp(30px,5vh,52px)}
@@ -193,6 +196,8 @@ header.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(14px);box-
 .pcard .cap{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:16px 6px 0}
 .pcard .cap .t{font-family:var(--disp);font-weight:700;font-size:clamp(1.05rem,1.8vw,1.35rem);letter-spacing:-.02em}
 .pcard .cap .m{font-size:13px;color:var(--mid);text-align:right;white-space:nowrap}
+.pcard-summary{padding:8px 6px 0;color:var(--mid);font-size:14px;line-height:1.5;max-width:42ch}
+@media(max-width:600px){.pcard .cap{align-items:flex-start;flex-direction:column;gap:3px}.pcard .cap .m{text-align:left;white-space:normal}}
 
 /* ===== logo marquee ===== */
 .lmq{overflow:hidden;padding:clamp(8px,1.5vh,16px) 0 clamp(34px,5vh,52px)}
@@ -549,9 +554,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h1>
           <span class="ln"><span>I make complicated things click.</span></span>
         </h1>
-        <div class="ctas rv d1">
-          <a class="btn dark" href="#contact"><span class="lw"><span class="l">Get in touch</span><span class="l dup">Get in touch</span></span></a>
-          <a class="btn ghost" href="#work"><span class="lw"><span class="l">See my work</span><span class="l dup">See my work</span></span></a>
+        <p class="hero-intro rv d1">I turn complex problems into clear, intuitive digital products.</p>
+        <p class="hero-location rv d1">Based in Buenos Aires. Working worldwide.</p>
+        <div class="ctas rv d2">
+          <a class="btn dark" href="#work"><span class="lw"><span class="l">See my work</span><span class="l dup">See my work</span></span></a>
+          <a class="btn ghost" href="#contact"><span class="lw"><span class="l">Get in touch</span><span class="l dup">Get in touch</span></span></a>
         </div>
       </div>
       <div class="pcardio rv d2">
@@ -592,42 +599,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="sec wrap" id="work">
     <div class="sec-head rv">
       <h2>Featured projects</h2>
-      <p class="sub">Four products where design moved the number that mattered.</p>
+      <p class="sub">Selected projects, each with a different problem to solve.</p>
     </div>
     <div class="plist">
 
       <a class="pcard rv" href="project-1.html">
         <div class="media">
-          <div class="inner"><div class="ph"><img src="cu-home.png" alt="Featured Project 1">
+          <div class="inner"><div class="ph"><img src="cu-home.png" alt="CookUnity weekly meal menu interface">
         </div></div>
           <span class="arrow">&rarr;</span>
         </div>
-        <div class="cap"><span class="t">CookUnity</span><span class="m">FoodTech Subscription &middot; 2021</span></div>
+        <div class="cap"><span class="t">CookUnity</span><span class="m">Subscription &middot; 2019–2021</span></div><p class="pcard-summary">Making meal discovery and weekly subscription changes easier.</p>
       </a>
 
       <a class="pcard rv" href="project-2.html">
         <div class="media">
-          <div class="inner"><div class="ph"><img src="mb-home.jpg" alt="Featured Project 2"></div></div>
+          <div class="inner"><div class="ph"><img src="mb-home.jpg" alt="moveBuddha mover details and quote flow"></div></div>
           <span class="arrow">&rarr;</span>
         </div>
-        <div class="cap"><span class="t">MoveBuddha</span><span class="m">Moving & Relocation
- &middot; 2025</span></div>
+        <div class="cap"><span class="t">MoveBuddha</span><span class="m">Marketplace &middot; 2024–2025</span></div><p class="pcard-summary">Clarifying trust, pricing and the next step on mobile.</p>
       </a>
 
       <a class="pcard rv" href="staircase-project.html" data-protected="true">
         <div class="media">
-          <div class="inner"><div class="ph"><img src="st-home.png" alt="Featured Project 3"></div></div>
+          <div class="inner"><div class="ph"><img src="st-home.png" alt="Staircase mortgage operations dashboard"></div></div>
           <span class="arrow">&rarr;</span>
         </div>
-        <div class="cap"><span class="t">Staircase</span><span class="m">PropTech + B2B SaaS &middot; 2023</span></div>
+        <div class="cap"><span class="t">Staircase</span><span class="m">Fintech &middot; 2021–2023</span></div><p class="pcard-summary">Helping loan officers see what needs attention first.</p>
       </a>
 
       <a class="pcard rv" href="project-4.html">
         <div class="media">
-          <div class="inner"><div class="ph"><img src="rt-home.png" alt="Featured Project 4"></div></div>
+          <div class="inner"><div class="ph"><img src="rt-home.png" alt="Ruta0 road trip planning interface"></div></div>
           <span class="arrow">&rarr;</span>
         </div>
-        <div class="cap"><span class="t">Ruta 0</span><span class="m">Route planner &middot; 2026</span></div>
+        <div class="cap"><span class="t">Ruta 0</span><span class="m">Travel &middot; 2024</span></div><p class="pcard-summary">Modernizing route planning without disrupting familiar habits.</p>
       </a>
 
     </div>
@@ -641,8 +647,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="rv d1">
         <h2>Nice to meet you, I&rsquo;m Guido</h2>
-        <p>Senior product designer with 13+ years across travel, fintech, enterprise and DTC. I lead research, build design systems and ship end to end.</p>
-        <p>I came up through advertising and web development, so I move from problem framing to pixels to front-end without friction. Engineers get feasible designs. Stakeholders get decisions backed by data.</p>
+        <p>I’m a product designer with 13+ years of experience across travel, fintech, SaaS and ecommerce.</p>
+          <p>I enjoy figuring out messy problems, challenging assumptions and finding simpler ways to make products work better for people and businesses. My background in advertising and web development helps me connect the message, the interaction and the implementation.</p>
         <div class="langs">
           <span class="chip"><span class="em">&#127466;&#127480;</span>Hablo espa&ntilde;ol</span>
           <span class="chip"><span class="em">&#127468;&#127463;</span>I speak English</span>
@@ -655,15 +661,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- EXPERTISE -->
   <section class="sec wrap" id="competencies">
     <div class="sec-head rv">
-      <h2>Core Competencies</h2>
+      <h2>How I work</h2>
     </div>
     <div class="xgrid">
-      <div class="xcard rv"><div class="xic"><svg class="ic ic-bars" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect class="b1" x="3.5" y="13" width="4.4" height="8" rx="1"/><rect class="b2" x="9.8" y="8.5" width="4.4" height="12.5" rx="1"/><rect class="b3" x="16.1" y="3.5" width="4.4" height="17.5" rx="1"/></svg></div><h3>Conversion &amp; CRO</h3><p>Finding where intent leaks and closing the gap, from checkout to sign-up.</p></div>
-      <div class="xcard rv d1"><div class="xic"><svg class="ic ic-loop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><polyline points="20 3.5 20 8 15.5 8"/></svg></div><h3>End-to-end product design</h3><p>From first research session to shipped interface. I own the whole problem.</p></div>
-      <div class="xcard rv d2"><div class="xic"><svg class="ic ic-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" aria-hidden="true"><rect class="g1" x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect class="g2" x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect class="g3" x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect class="g4" x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg></div><h3>Design systems</h3><p>Components and rules that let teams ship faster without drifting.</p></div>
-      <div class="xcard rv"><div class="xic"><svg class="ic ic-mag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><line x1="15.2" y1="15.2" x2="20.5" y2="20.5"/></svg></div><h3>Research &amp; framing</h3><p>The real problem first, screens second. Data over opinions.</p></div>
-      <div class="xcard rv d1"><div class="xic"><svg class="ic ic-rows" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line class="r1" x1="3.5" y1="6" x2="20.5" y2="6"/><line class="r2" x1="3.5" y1="12" x2="16" y2="12"/><line class="r3" x1="3.5" y1="18" x2="20.5" y2="18"/></svg></div><h3>Data-dense UX</h3><p>Tools used eight hours a day, built for speed and certainty.</p></div>
-      <div class="xcard rv d2"><div class="xic"><svg class="ic ic-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline class="lb" points="8 6.5 3 12 8 17.5"/><polyline class="rb" points="16 6.5 21 12 16 17.5"/><line class="sl" x1="13.5" y1="5" x2="10.5" y2="19"/></svg></div><h3>Front-end fluency</h3><p>I prototype in code and speak the engineers&rsquo; language.</p></div>
+      <div class="xcard rv"><div class="xic"><svg class="ic ic-bars" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect class="b1" x="3.5" y="13" width="4.4" height="8" rx="1"/><rect class="b2" x="9.8" y="8.5" width="4.4" height="12.5" rx="1"/><rect class="b3" x="16.1" y="3.5" width="4.4" height="17.5" rx="1"/></svg></div><h3>Conversion &amp; CRO</h3><p>I look for where people hesitate or drop off, then focus the design on the behavior that needs to change.</p></div>
+      <div class="xcard rv d1"><div class="xic"><svg class="ic ic-loop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><polyline points="20 3.5 20 8 15.5 8"/></svg></div><h3>End-to-end product design</h3><p>I connect problem framing, user flows, interface design and delivery, staying close to the problem through implementation.</p></div>
+      <div class="xcard rv d2"><div class="xic"><svg class="ic ic-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" aria-hidden="true"><rect class="g1" x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect class="g2" x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect class="g3" x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect class="g4" x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg></div><h3>Design systems</h3><p>I build shared patterns when repeated decisions slow a team down or make the product inconsistent.</p></div>
+      <div class="xcard rv"><div class="xic"><svg class="ic ic-mag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><line x1="15.2" y1="15.2" x2="20.5" y2="20.5"/></svg></div><h3>Research &amp; framing</h3><p>I use research, analytics and behavioral signals to understand the problem before committing to a solution.</p></div>
+      <div class="xcard rv d1"><div class="xic"><svg class="ic ic-rows" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line class="r1" x1="3.5" y1="6" x2="20.5" y2="6"/><line class="r2" x1="3.5" y1="12" x2="16" y2="12"/><line class="r3" x1="3.5" y1="18" x2="20.5" y2="18"/></svg></div><h3>Data-dense UX</h3><p>I prioritize the information people need to act, especially when every row or metric seems equally important.</p></div>
+      <div class="xcard rv d2"><div class="xic"><svg class="ic ic-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline class="lb" points="8 6.5 3 12 8 17.5"/><polyline class="rb" points="16 6.5 21 12 16 17.5"/><line class="sl" x1="13.5" y1="5" x2="10.5" y2="19"/></svg></div><h3>Front-end fluency</h3><p>I understand implementation constraints and use prototypes to make interactions concrete before handoff.</p></div>
     </div>
   </section>
 
@@ -671,7 +677,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="sec wrap" id="skills">
     <div class="sec-head rv">
       <h2>Skills</h2>
-      <p class="sub">The toolkit behind the work, indexed.</p>
+      <p class="sub">Tools and methods I use in the work.</p>
     </div>
     <div class="skills rv">
       <div class="cols">
@@ -716,7 +722,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="sec wrap exp" id="experience">
     <div class="sec-head rv">
       <h2>Experience</h2>
-      <p class="sub">13+ years, startups and large companies alike.</p>
+      <p class="sub">Startups and established companies, from early product decisions to mature workflows.</p>
     </div>
     <div class="rv">
 <!-- Company logos live in /logos/companies/ as <name>.png (256x256).
@@ -725,31 +731,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="ico"><img src="logos/companies/purple-fire.png" alt="PurpleFire logo" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'PF',className:'ini'}))"></span>
         <span class="who"><span class="co">PurpleFire</span><span class="rl">Lead UX/UI Designer</span></span>
         <span class="yr">Dec 2023 &ndash; Present</span>
-        <span class="desc">Designed CRO focused landing pages and digital experiences for 60+ clients, optimizing for conversion and business impact.</span>
+        <span class="desc">Designed landing pages and digital experiences for 60+ clients, identifying conversion friction and translating business goals into clearer page structures and user journeys.</span>
       </div>
       <div class="row">
         <span class="ico"><img src="logos/companies/staircase.png" alt="Staircase logo" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'St',className:'ini'}))"></span>
         <span class="who"><span class="co">Staircase Tools</span><span class="rl">Senior Product Designer</span></span>
         <span class="yr">Jun 2021 &ndash; Mar 2023</span>
-        <span class="desc">One of two designers at a pre Series A startup, designing automation workflows to streamline mortgage processes across the US.</span>
+        <span class="desc">One of two designers at a pre-Series A startup, designing workflows for mortgage operations and making complex processes easier to follow.</span>
       </div>
       <div class="row">
         <span class="ico"><img src="logos/companies/cookunity.png" alt="CookUnity logo" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'CU',className:'ini'}))"></span>
         <span class="who"><span class="co">CookUnity</span><span class="rl">Lead Product Designer</span></span>
         <span class="yr">Jun 2019 &ndash; Apr 2021</span>
-        <span class="desc">First designer at a pre Series A startup, shaping the product and building the first design team as it grew into a unicorn.</span>
+        <span class="desc">First product designer, shaping core experiences and establishing the design foundation as the company and team grew.</span>
       </div>
       <div class="row">
         <span class="ico"><img src="logos/companies/thomson-reuters.png" alt="Thomson Reuters logo" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'TR',className:'ini'}))"></span>
         <span class="who"><span class="co">Thomson Reuters</span><span class="rl">Senior UX Designer</span></span>
         <span class="yr">Aug 2017 &ndash; Dec 2019</span>
-        <span class="desc">Interaction design with accessibility and usability standards. Designed tax and accounting experiences for professional users.</span>
+        <span class="desc">Designed tax and accounting experiences for professional users, with a focus on clear interactions, usability and accessibility.</span>
       </div>
       <div class="row">
         <span class="ico"><img src="logos/companies/despegar.png" alt="Despegar logo" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'De',className:'ini'}))"></span>
         <span class="who"><span class="co">Despegar.com</span><span class="rl">UX Designer</span></span>
         <span class="yr">Jun 2013 &ndash; Aug 2017</span>
-        <span class="desc">Worked across the Flights and Checkout teams, improving key experiences throughout the travel booking journey.</span>
+        <span class="desc">Worked across Flights and Checkout, improving key steps in the booking journey while balancing user needs and commercial goals.</span>
       </div>
     </div>
     <div class="rv" style="margin-top:clamp(28px,4vh,44px)">
@@ -762,7 +768,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- CONTACT -->
   <section class="contact wrap" id="contact">
     <h2 class="rv">Let&rsquo;s collaborate</h2>
-    <p class="sub rv d1">Write me an email and I&rsquo;ll respond within one business day.</p>
+    <p class="sub rv d1">Have a project or role in mind? Get in touch.</p>
     <div class="mailrow rv d2">
       <span class="mail" id="mail">hi@guidoavogadro.com</span>
       <button class="btn dark copybtn" id="copy">
@@ -770,7 +776,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="ok">Copied!</span>
       </button>
     </div>
-    <p class="note rv d3">Open to senior product design roles and selective freelance. Remote, worldwide.</p>
+    <p class="note rv d3">Open to senior product design roles and selective freelance projects. Remote, worldwide.</p>
   </section>
 
 </main>
