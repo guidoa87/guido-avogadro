@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>meli+ BenefitTile</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
@@ -225,13 +226,13 @@ code{font:600 .92em/1 var(--font);font-feature-settings:"tnum";background:var(--
 .slide.play .og4 .q2,#escala.play .pvc:nth-child(2){animation-delay:.12s}.slide.play .og4 .q3,#escala.play .pvc:nth-child(3){animation-delay:.24s}.slide.play .og4 .q4,#escala.play .pvc:nth-child(4){animation-delay:.36s}
 #nuevo.play .tl-d li:nth-child(1){animation-delay:.3s}#nuevo.play .tl-d li:nth-child(2){animation-delay:.42s}#nuevo.play .tl-d li:nth-child(3){animation-delay:.54s}
 /* antes y ahora */
-.anba{gap:16px;align-items:flex-start}
+.anba{gap:16px;align-items:stretch;width:100%}
 .anba-lab{display:grid;overflow:hidden}.anba-lab .vst{grid-area:1/1;transition:opacity .35s cubic-bezier(.22,1,.36,1),transform .45s cubic-bezier(.22,1,.36,1)}
 .anba .t2{opacity:0;transform:translateY(60%)}.anba.now .t1{opacity:0;transform:translateY(-60%)}.anba.now .t2{opacity:1;transform:none}
-.anba-st{display:grid;width:100%}.anba-st>*{grid-area:1/1;align-self:start}
+.anba-st{display:grid;width:100%;justify-items:center;align-items:center}.anba-st>*{grid-area:1/1}
 .anba .old{width:312px;border-radius:14px;transition:opacity .45s ease,filter .45s ease,transform .45s cubic-bezier(.22,1,.36,1)}
 .slide.play .anba .old{animation:qin .7s cubic-bezier(.22,.8,.24,1) backwards}
-.anba.now .old{opacity:0;filter:blur(8px);transform:scale(.96)}
+.anba.now .old{visibility:hidden}
 .anba .new{position:relative;width:100%;max-width:560px;visibility:hidden}.anba.now .new{visibility:visible}.new .tl{width:100%}
 .anba-re{all:unset;cursor:pointer;margin-top:8px;font:500 20px/1 var(--font);color:var(--muted);opacity:0;transition:opacity .4s,color .15s;pointer-events:none}
 .anba-re.on{opacity:1;pointer-events:auto}.anba-re::before{content:"↻ "}.anba-re:hover{color:var(--ink)}.anba-re:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
@@ -1430,11 +1431,24 @@ return function(el,D=2400){
     if(now-t0>=T)return end();raf=requestAnimationFrame(frame);}
   raf=requestAnimationFrame(frame);safety=setTimeout(end,T+300); // si no hay cuadros (pestaña oculta), igual termina
   return el.__gen={cancel:end,finished};};})();
+/* La card vieja se desintegra: se parte en granos que se van hacia la derecha y se apagan, de izquierda a derecha */
+function dissolve(img,D=750){const W=img.offsetWidth,H=img.offsetHeight,host=img.offsetParent;if(!host||!W)return;
+  const k=2,c=document.createElement("canvas");c.width=W*k;c.height=H*k;Object.assign(c.style,{position:"absolute",left:img.offsetLeft+"px",top:img.offsetTop+"px",width:W+"px",height:H+"px",pointerEvents:"none",zIndex:2});
+  const x=c.getContext("2d"),r=parseFloat(getComputedStyle(img).borderRadius)||0;x.save();x.beginPath();x.roundRect(0,0,W*k,H*k,r*k);x.clip();x.drawImage(img,0,0,W*k,H*k);x.restore();
+  let px;try{px=x.getImageData(0,0,W*k,H*k).data;}catch(e){return;}
+  const B=4*k,ps=[];for(let y=0;y<H*k;y+=B)for(let xx=0;xx<W*k;xx+=B){const i=((y+B/2|0)*W*k+(xx+B/2|0))*4;if(px[i+3]<20)continue;
+    ps.push({x:xx,y,c:`rgb(${px[i]},${px[i+1]},${px[i+2]})`,d:xx/(W*k)*.45+Math.random()*.15,vx:(40+Math.random()*90)*k,vy:(-50+Math.random()*60)*k});}
+  host.appendChild(c);img.style.visibility="hidden";const t0=performance.now();let raf;
+  const end=()=>{cancelAnimationFrame(raf);c.remove();};setTimeout(end,D+200);
+  (function f(now){const p=(now-t0)/D;x.clearRect(0,0,c.width,c.height);
+    for(const q of ps){const t=Math.max(0,Math.min(1,(p-q.d)/.4));if(t>=1)continue;const e=t*t;x.globalAlpha=1-t;x.fillStyle=q.c;x.fillRect(q.x+q.vx*e,q.y+q.vy*e,B*(1-t*.5),B*(1-t*.5));}
+    if(p<1.05)raf=requestAnimationFrame(f);else end();})(t0);}
 (()=>{const reduce=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;let timers=[];
 const later=(f,ms)=>timers.push(setTimeout(f,ms));const clear=()=>{timers.forEach(clearTimeout);timers=[];};
 const runs={
-  decisiones(s){const b=s.querySelector(".anba"),tl=s.querySelector(".new .tl");b.classList.remove("now");if(tl.__gen)tl.__gen.cancel();if(reduce())return;
-    later(()=>{b.classList.add("now");tl.style.opacity="0";},2200);later(()=>genTile(tl,2400),2600);},
+  decisiones(s){const b=s.querySelector(".anba"),tl=s.querySelector(".new .tl"),old=s.querySelector(".old");b.classList.remove("now");old.style.visibility="";if(tl.__gen)tl.__gen.cancel();if(reduce())return;
+    later(()=>dissolve(old,750),1400);
+    later(()=>{b.classList.add("now");tl.style.opacity="0";genTile(tl,2400);},2000);},
   figma(s){const im=s.querySelector(".fset");if(reduce())return;im.style.opacity="0";later(()=>genTile(im,2600),250);}};
 const ss=[...document.querySelectorAll("#porque,#decisiones,#nuevo,#escala,#figma")];
 const play=s=>{s.classList.remove("play");void s.offsetWidth;s.classList.add("play");runs[s.id]&&runs[s.id](s);};
@@ -1442,3 +1456,4 @@ const io=new IntersectionObserver(es=>{for(const e of es){const s=e.target;if(e.
 ss.forEach(s=>io.observe(s));
 })();
 </script>
+</body></html>
