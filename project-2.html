@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>moveBuddha — Finding your mover shouldn’t feel like moving · Guido Avogadro</title>
-<meta name="description" content="UX/UI redesign of moveBuddha’s mover detail pages and quote flow, focused on trust, pricing context and mobile action hierarchy.">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>moveBuddha Case Study</title>
+<meta name="description" content="Case study: redesigning moveBuddha’s mover profile around trust, pricing context and a clear next step.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -410,9 +406,151 @@ footer .fin b{color:var(--ink);font-weight:600}
   .contact h2{font-size:clamp(2rem,9vw,2.8rem)}
 }
 
+
+/* ============================================================
+   Case study additions
+   ============================================================ */
+:root{--blue:#1f5eff;--blue-t:#e8efff;--orange:#ff5a1f;--orange-t:#fff0e9;--green:#16a34a;--red:#e5484d}
+.pfacts{grid-template-columns:repeat(4,1fr)}
+.psec h2{text-wrap:balance}
+.psec .desc{max-width:52ch}
+
+
+/* before / after: drag only */
+.ba{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);--pos:50%;user-select:none;-webkit-user-select:none}
+.ba>img{width:100%;display:block}
+.ba-screen{position:absolute;left:17.78%;top:13.51%;width:64%;height:67.14%;overflow:hidden;border-radius:0 0 .6% .6%}
+.ba-before{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--pos)) 0 0);z-index:3;background:#fff}
+.ba-before img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.ba-line{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 0 1px rgba(18,18,18,.18);z-index:4;pointer-events:none}
+.ba-knob{position:absolute;top:50%;left:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;letter-spacing:2px;box-shadow:0 6px 18px rgba(0,0,0,.3);transition:transform .25s var(--ease)}
+.ba:hover .ba-knob{transform:scale(1.08)}
+.ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:5;margin:0}
+.ba-range:focus-visible+.ba-line .ba-knob{outline:2px solid #fff;outline-offset:3px}
+.ba-tag{position:absolute;top:10px;z-index:4;font-family:var(--disp);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;border-radius:100px;pointer-events:none}
+.ba-tag.b{left:10px;background:rgba(18,18,18,.82);color:#fff}
+.ba-tag.a{right:10px;background:#fff;color:var(--ink);box-shadow:0 4px 14px rgba(18,18,18,.18)}
+
+/* process strip */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;counter-reset:st;position:relative}
+.steps::before{content:"";position:absolute;left:10%;right:10%;top:23px;height:2px;background:repeating-linear-gradient(90deg,var(--faint) 0 6px,transparent 6px 12px)}
+.step{text-align:center;padding:0 8px;position:relative}
+.step .dot{width:48px;height:48px;border-radius:50%;margin:0 auto 16px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink);box-shadow:0 8px 20px -12px rgba(18,18,18,.3);position:relative;z-index:1;transition:background .4s,color .4s,transform .4s var(--ease)}
+.step .dot svg{width:20px;height:20px}
+.step h3{font-size:1rem;margin-bottom:4px}
+.step p{font-size:13px;color:var(--mid);line-height:1.45}
+.steps.in .step .dot{animation:stepOn .5s var(--ease) both}
+.steps.in .step:nth-child(1) .dot{animation-delay:.1s}.steps.in .step:nth-child(2) .dot{animation-delay:.25s}.steps.in .step:nth-child(3) .dot{animation-delay:.4s}.steps.in .step:nth-child(4) .dot{animation-delay:.55s}.steps.in .step:nth-child(5) .dot{animation-delay:.7s}
+@keyframes stepOn{0%{transform:scale(.7)}60%{transform:scale(1.1);background:var(--ink);color:#fff}100%{transform:scale(1)}}
+
+/* journey */
+.jr{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);position:relative}
+.jr-ends{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;font-family:var(--disp);font-size:13px;font-weight:600;color:var(--mid)}
+.jr-ends span{display:inline-flex;align-items:center;gap:8px}
+.jr-ends .line{flex:1;height:2px;margin:0 14px;background:linear-gradient(90deg,var(--faint),var(--ink));border-radius:2px;position:relative}
+.jr-ends .line::after{content:"";position:absolute;right:-1px;top:-4px;border:5px solid transparent;border-left:7px solid var(--ink);border-right:0}
+.jr-ends .end{color:var(--ink)}
+.jc{border:1px solid var(--line-soft);border-radius:var(--r);background:#fff;box-shadow:0 14px 38px -26px rgba(18,18,18,.22);overflow:hidden;display:flex;flex-direction:column}
+.jc .q{padding:22px 22px 18px;font-family:var(--disp);font-weight:700;font-size:1.25rem;letter-spacing:-.02em;line-height:1.2}
+.jc .q small{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.jc .row{display:flex;gap:10px;align-items:flex-start;padding:12px 22px;font-size:14px;line-height:1.45;border-top:1px solid var(--line-soft)}
+.jc .row b{flex:none;font-family:var(--disp);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:100px;margin-top:1px}
+.jc .row.bf{color:var(--mid)}
+.jc .row.bf b{background:#f6e3e3;color:#b4232a}
+.jc .row.af b{background:#e1f3e7;color:#127a37}
+.jc .shot{margin-top:auto;background:var(--ph);padding:18px;display:flex;align-items:center;justify-content:center;min-height:132px}
+.jc .shot img{max-width:100%;border-radius:10px;background:#fff;box-shadow:0 10px 24px -14px rgba(18,18,18,.35);transform:translateY(10px);opacity:0;transition:transform .7s var(--ease) .3s,opacity .7s var(--ease) .3s}
+.jc.in .shot img{transform:none;opacity:1}
+
+/* system: animated components */
+.panel{background:var(--ph);border-radius:var(--r);padding:clamp(18px,3vw,36px);display:flex;align-items:center;justify-content:center;min-height:100%}
+.mx{width:100%;max-width:400px;font-family:var(--disp);color:#0f1b3d}
+.mx-card{background:#fff;border-radius:20px;box-shadow:0 20px 40px -24px rgba(15,27,61,.35)}
+.ms-head{padding:26px 22px;text-align:center;margin-bottom:12px}
+.ms-ic{width:62px;height:62px;border-radius:50%;background:var(--blue-t);color:var(--blue);display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.ms-ic svg{width:28px;height:28px}
+.ms-head h3{font-size:1.6rem;letter-spacing:-.03em;font-weight:800}
+.ms-list{padding:6px 20px}
+.ms-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #eceef3;font-family:var(--sans);font-size:15px;color:#3b4258;opacity:0;transform:translateX(-14px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.ms-row:last-child{border-bottom:0}
+.ms-row .ic{width:40px;height:40px;border-radius:50%;background:var(--blue-t);color:var(--blue);display:flex;align-items:center;justify-content:center;flex:none}
+.ms-row .ic svg{width:20px;height:20px}
+.in .ms-row{opacity:1;transform:none}
+.in .ms-row:nth-child(1){transition-delay:.35s}.in .ms-row:nth-child(2){transition-delay:.5s}.in .ms-row:nth-child(3){transition-delay:.65s}
+.in .ms-ic{animation:bob 3s ease-in-out 1s infinite}
+.in .ms-row:nth-child(3) .ic svg{animation:ring 2.8s ease-in-out 1.4s infinite;transform-origin:50% 10%}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes ring{0%,70%,100%{transform:rotate(0)}75%{transform:rotate(14deg)}80%{transform:rotate(-12deg)}85%{transform:rotate(8deg)}90%{transform:rotate(-4deg)}}
+
+.ch{padding:22px}
+.ch h3{font-size:1.15rem;letter-spacing:-.02em;line-height:1.25;margin-bottom:14px;font-weight:800}
+.ch-stats{display:grid;grid-template-columns:1fr 1fr;border:1px solid #eceef3;border-radius:12px;padding:12px 14px;gap:12px;margin-bottom:12px}
+.ch-stats div>span{display:block;font-family:var(--sans);font-size:12px;color:#6b7186;margin-bottom:2px}
+.ch-stats b{font-size:1.25rem;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.ch-stats .g{color:var(--green)}
+.ch-stats em{font-style:normal;font-size:12px;color:var(--green);font-weight:700;margin-left:4px}
+.ch-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--blue);color:#fff;border-radius:10px;padding:11px;font-weight:700;font-size:14px;margin-bottom:16px}
+.ch-btn svg{width:16px;height:16px}
+.ch-plot{display:grid;grid-template-columns:auto 1fr;gap:8px;height:170px}
+.ch-y{display:flex;flex-direction:column;justify-content:space-between;font-size:10px;color:#6b7186;text-align:right;padding-bottom:16px;font-variant-numeric:tabular-nums}
+.ch-y span{line-height:0}
+.ch-area{position:relative;display:grid;grid-template-rows:1fr 16px}
+.ch-grid{position:absolute;inset:0 0 16px 0;display:flex;flex-direction:column;justify-content:space-between}
+.ch-grid i{border-top:1px dashed #e7e9ef}
+.ch-bars{position:relative;display:grid;grid-template-columns:repeat(12,1fr);gap:4px;align-items:end;height:100%}
+.ch-bars .b{position:relative;height:var(--h);background:#e9ebf1;border-radius:4px 4px 2px 2px;transform:scaleY(0);transform-origin:bottom;transition:transform .7s var(--ease);transition-delay:calc(var(--i) * 55ms + .2s)}
+.ch-bars .b.pk{background:var(--blue)}
+.ch-bars .b.lo{background:var(--green)}
+.in .ch-bars .b{transform:scaleY(1)}
+.ch-bars .tip{position:absolute;left:50%;bottom:calc(100% + 6px);transform:translate(-50%,6px);font-size:10px;font-weight:700;color:#fff;padding:3px 6px;border-radius:6px;white-space:nowrap;opacity:0;transition:opacity .4s,transform .4s var(--ease);transition-delay:1.2s}
+.ch-bars .pk .tip{background:var(--blue)}
+.ch-bars .lo .tip{background:var(--green)}
+.in .ch-bars .tip{opacity:1;transform:translate(-50%,0)}
+.ch-x{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;font-size:9.5px;color:#6b7186;text-align:center;align-items:end}
+.ch-note{font-family:var(--sans);font-size:11px;color:#6b7186;margin-top:10px}
+
+@media(max-width:960px){.pfacts{grid-template-columns:repeat(2,1fr)}.jr{grid-template-columns:1fr}}
+@media(max-width:760px){.steps{grid-template-columns:1fr;gap:18px}.steps::before{left:23px;right:auto;top:10px;bottom:10px;width:2px;height:auto;background:repeating-linear-gradient(180deg,var(--faint) 0 6px,transparent 6px 12px)}.step{display:grid;grid-template-columns:48px 1fr;column-gap:16px;text-align:left;padding:0}.step .dot{margin:0;grid-row:span 2}.jr-ends{display:none}}
+@media(max-width:560px){.ba-tag{font-size:9px;padding:4px 7px;top:6px}.ba-tag.b{left:6px}.ba-tag.a{right:6px}.ba-knob{width:34px;height:34px;margin:-17px 0 0 -17px}}
+@media(prefers-reduced-motion:reduce){.ms-row,.jc .shot img{opacity:1;transform:none}.ch-bars .b{transform:none}.ch-bars .tip{opacity:1}}
+
+/* ---------- link color ---------- */
+:root{--link:#0076d0;--link-t:#e6f1fb}
+
+/* ---------- simple wireframe ---------- */
+.wf2{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,56px);align-items:stretch;background:var(--ph);border-radius:var(--r);padding:clamp(22px,4vw,52px)}
+.wf2 figure{display:grid;grid-template-rows:1fr auto;gap:12px}
+.wf2 figcaption{font-family:var(--disp);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mid)}
+.wf2-scr{background:#fff;box-shadow:0 24px 50px -28px rgba(18,18,18,.35);display:grid;gap:8px;padding:12px}
+.wf2-scr.phn{width:200px;border-radius:28px;padding:30px 12px 18px;position:relative}
+.wf2-scr.phn::before{content:"";position:absolute;top:10px;left:50%;width:54px;height:8px;margin-left:-27px;border-radius:8px;background:#e4e3de}
+.wf2-scr.dk{border-radius:14px;grid-template-columns:1.5fr 1fr;align-items:start;padding:34px 14px 14px;position:relative}
+.wf2-scr.dk::before{content:"";position:absolute;top:13px;left:14px;width:36px;height:8px;border-radius:8px;background:radial-gradient(circle,#e4e3de 3.5px,transparent 4px) 0 0/12px 8px repeat-x}
+.wf2-col{display:grid;gap:8px}
+.blk{border-radius:10px;background:#f1f0ec;color:var(--mid);font-family:var(--disp);font-size:12.5px;font-weight:600;padding:0 12px;display:flex;align-items:center;min-height:44px;line-height:1.25}
+.blk.t1{min-height:40px}.blk.t2{min-height:60px}.blk.t4{min-height:92px;background:transparent;box-shadow:inset 0 0 0 1.5px #e4e3de}
+.blk.hl{background:var(--link-t);color:var(--link);min-height:88px;flex-direction:column;align-items:stretch;justify-content:center;gap:8px;padding:12px}
+.blk.hl i{display:block;height:14px;border-radius:5px;background:var(--link)}
+.blk.hl i+i{background:transparent;box-shadow:inset 0 0 0 1.5px var(--link)}
+.dk .blk.hl{min-height:150px;position:relative}
+.dk .blk.hl small{position:absolute;top:-9px;right:10px;background:var(--link);color:#fff;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:100px}
+.wf2 .blk{opacity:0;transform:translateY(6px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.wf2.in .blk{opacity:1;transform:none}
+.wf2.in .b1{transition-delay:.1s}.wf2.in .b2{transition-delay:.25s}.wf2.in .b3{transition-delay:.4s}.wf2.in .b4{transition-delay:.55s}
+
+@media(max-width:860px){.wf2{grid-template-columns:1fr;justify-items:center}.wf2 figure{width:100%;max-width:520px;justify-items:center}.wf2-scr.dk{width:100%}}
+@media(prefers-reduced-motion:reduce){.wf2 .blk{opacity:1;transform:none}}
+
+.wf2-scr.phn{display:flex;flex-direction:column;align-items:stretch;gap:8px}
+.wf2-scr.dk{align-content:stretch}
+.wf2-scr.phn .blk.t4{flex:1}
+.wf2-scr.dk{align-items:stretch}
+.wf2-col{grid-template-rows:auto auto 1fr}
+.dk .blk.hl{align-self:start}
+.metric.next .mv{color:var(--mid);border-bottom-color:transparent}
 </style>
-</head>
-<body id="top">
+<style>body{background:#fff;color:#121212}</style>
+<div id="top">
 
 <div class="progress" aria-hidden="true"><div class="pb" id="pb"></div></div>
 
@@ -431,88 +569,174 @@ footer .fin b{color:var(--ink);font-weight:600}
 <main>
 
   <!-- HERO -->
-  <section class="phero wrap">
+  <section class="phero wrap" id="overview">
     <a class="btn ghost sm back" href="index.html#work"><span class="lw"><span class="l">&larr; All projects</span><span class="l dup">&larr; All projects</span></span></a>
     <h1 class="rv">Finding your mover shouldn&rsquo;t feel like moving</h1>
-    <p class="lede rv d1">moveBuddha helps people compare moving companies and request quotes during a stressful, high-cost decision. I led the UX/UI redesign of mover detail pages and the quote flow across desktop and mobile, focusing on three competing needs: establish trust, provide useful pricing context and make the next action clear.</p>
+    <p class="lede rv d1">A 2026 redesign of moveBuddha&rsquo;s mover profile, the page where people decide whether to contact a moving company. It&rsquo;s currently in an A/B test against the live page.</p>
     <div class="pfacts rv d2">
       <div class="f"><div class="k">Client</div><div class="v">moveBuddha</div></div>
-      <div class="f"><div class="k">Industry</div><div class="v">Moving &amp; Relocation</div></div>
-      <div class="f"><div class="k">Year</div><div class="v">2024&ndash;2025</div></div>
       <div class="f"><div class="k">Role</div><div class="v">Lead Product Designer</div></div>
+      <div class="f"><div class="k">Scope</div><div class="v">Mover profile, desktop + mobile</div></div>
+      <div class="f"><div class="k">Year</div><div class="v">2026</div></div>
     </div>
   </section>
 
-  <!-- HERO IMAGE -->
-  <section class="wrap rv">
-    <div class="pimg tall"><img src="mb-hero.jpg" alt="Desktop UX/UI Design for Moving Company"></div>
+  <!-- BEFORE / AFTER -->
+  <section class="psec wrap" id="compare">
+    <div class="ba rv" id="ba">
+      <img src="mb-hero.jpg" alt="Redesigned moveBuddha mover profile for Applewhite Movers shown on a laptop">
+      <div class="ba-screen">
+        <div class="ba-before"><img src="mb-before.jpg" alt="Previous moveBuddha mover profile for Apple Movers"></div>
+        <input class="ba-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Drag to compare. Left is before, right is after.">
+        <div class="ba-line"><span class="ba-knob" aria-hidden="true">&lsaquo;&rsaquo;</span></div>
+        <span class="ba-tag b">Live today</span>
+        <span class="ba-tag a">A/B test</span>
+      </div>
+    </div>
   </section>
 
   <!-- BIG STATEMENT -->
   <section class="pstmt wrap">
-    <h2 class="rv">The page had to answer users’ practical questions before asking them to act. <span class="soft">My challenge was to organize trust signals, pricing context and contact options without crowding the page or pushing the primary action out of reach.</span></h2>
+    <h2 class="rv">Before asking for a quote, the page has to answer two things: <span class="soft">can I trust this mover, and what will it cost?</span></h2>
   </section>
 
-  <!-- DETAIL IMAGE -->
-  <section class="wrap rv">
-    <div class="pimg tall"><img src="mb-detail-1.png" alt="UX/UI Design Detail"></div>
-  </section>
-
-  <!-- PROJECT GOAL -->
-  <section class="psec wrap">
-    <h2 class="rv">The problem to solve</h2>
-    <p class="desc rv d1">The mover detail page brings together reviews, company credentials, pricing context, quote requests and phone contact. Those elements all matter, but giving them equal emphasis made it harder to decide what to do next. I reorganized the page around the questions users needed answered before requesting a quote, then gave the quote action a consistent priority across screen sizes.</p>
-    <div class="pimg rv d2"><div class="pimg tall"><img src="mb-detail-2.png" alt="UX/UI Design Project Wireframe"></div></div>
-  </section>
-
-  <!-- PROBLEMS -->
-  <section class="psec wrap">
-    <h2 class="rv">What got in the way</h2>
-    <p class="desc rv d1">I used heatmaps, session recordings and funnel data to identify three recurring points of friction.</p>
-    <div class="numgrid">
-      <div class="numcard rv"><div class="n">01</div><h3>Trust signals buried below the fold</h3><p>Ratings, review excerpts and company credentials appeared too far down the page, leaving users to make a high-cost decision without seeing reassurance early enough.</p></div>
-      <div class="numcard rv d1"><div class="n">02</div><h3>Mobile CTA competition</h3><p>On small screens, quote and phone actions competed for attention. The primary action could also fall below the first scroll, adding effort at the moment users were ready to act.</p></div>
-      <div class="numcard rv d2"><div class="n">03</div><h3>No pricing context near the CTA</h3><p>The quote action lacked nearby pricing context, so users had to act without a useful reference point for expected cost.</p></div>
+  <!-- PROCESS -->
+  <section class="psec wrap" id="process">
+    <h2 class="rv">How I got there</h2>
+    <div class="steps rv d1">
+      <div class="step"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg></span><h3>Research</h3><p>Heatmaps, recordings, funnel data</p></div>
+      <div class="step"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4M12 16h.01"/></svg></span><h3>Diagnose</h3><p>3 points of friction</p></div>
+      <div class="step"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg></span><h3>Wireframe</h3><p>Mobile and desktop together</p></div>
+      <div class="step"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></span><h3>Design</h3><p>Trust, price, action</p></div>
+      <div class="step"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><h3>Test</h3><p>A/B test vs. the live page</p></div>
     </div>
   </section>
 
-  <!-- SOLUTIONS -->
-  <section class="psec wrap">
-    <h2 class="rv">The decisions</h2>
-    <div class="numgrid">
-      <div class="numcard sol rv"><div class="n">01</div><h3>Trust above the fold</h3><p>I moved ratings, review excerpts and key credentials higher in the page hierarchy. On desktop, the sticky sidebar kept the decision context and contact actions available while users explored the details.</p></div>
-      <div class="numcard sol rv d1"><div class="n">02</div><h3>Sticky CTA hierarchy on mobile</h3><p>I introduced a persistent mobile action bar with a clear order: request a quote first, phone contact second. Both options remained accessible without competing equally for visual attention.</p></div>
-      <div class="numcard sol rv d2"><div class="n">03</div><h3>Pricing context next to the ask</h3><p>I placed the state’s average hourly rate beside the quote action. It was a reference point, not a promised quote, helping users understand the next step without implying a guaranteed price.</p></div>
+  <!-- JOURNEY -->
+  <section class="psec wrap" id="journey">
+    <h2 class="rv">Three questions on the way to a quote</h2>
+    <div class="jr-ends rv d1"><span>Lands on a mover profile</span><span class="line"></span><span class="end">Requests a quote</span></div>
+    <div class="jr">
+      <div class="jc rv">
+        <div class="q"><small>Question 1</small>Can I trust them?</div>
+        <div class="row bf"><b>Before</b>Rating and complaints buried in paragraphs</div>
+        <div class="row af"><b>After</b>Sub-scores, top praise and top complaint at a glance</div>
+        <div class="shot"><img src="mb-crop-evidence.jpg" alt="Sub-scores for efficiency, pricing and reliability, with the most common praise and complaint"></div>
+      </div>
+      <div class="jc rv d1">
+        <div class="q"><small>Question 2</small>What will it cost?</div>
+        <div class="row bf"><b>Before</b>No price until far down the page</div>
+        <div class="row af"><b>After</b>State average hourly rate right above the button</div>
+        <div class="shot"><img src="mb-crop-price.jpg" alt="$127 average hourly rate in Alabama above the Get a Quote button"></div>
+      </div>
+      <div class="jc rv d2">
+        <div class="q"><small>Question 3</small>What do I do next?</div>
+        <div class="row bf"><b>Before</b>Score on one side, button on the other</div>
+        <div class="row af"><b>After</b>One panel: quote first, call second</div>
+        <div class="shot"><img src="mb-crop-actions.jpg" alt="Get a Quote as the filled button and Call as the outlined button"></div>
+      </div>
     </div>
   </section>
 
-  <!-- MOVER DETAIL PAGE -->
-  <section class="psec wrap">
-    <h2 class="rv">Mover detail page</h2>
-    <p class="desc rv d1">The redesigned layout brings ratings, review excerpts and service information into the first view on desktop and mobile. On desktop, the sticky sidebar keeps contact actions visible; pricing context sits next to the primary quote action so users can evaluate the next step with more information.</p>
-    <div class="pimg rv d2"><div class="pimg tall"><img src="mb-detail-3.jpg" alt="UX/UI Desktop Design"></div></div>
+  <!-- STRUCTURE -->
+  <section class="psec wrap" id="structure">
+    <h2 class="rv">The quote button never leaves reach</h2>
+    <p class="desc rv d1">On a phone it comes right after the evidence. On desktop it lives in a sticky column, one click away at any scroll depth.</p>
+    <div class="wf2 rv d2">
+      <figure>
+        <div class="wf2-scr phn">
+          <div class="blk t1 b1">Mover</div>
+          <div class="blk t2 b2">Scores &amp; reviews</div>
+          <div class="blk hl b3">Price, quote, call<i></i><i></i></div>
+          <div class="blk t4 b4">Services, facts, more reviews</div>
+        </div>
+        <figcaption>Mobile</figcaption>
+      </figure>
+      <figure>
+        <div class="wf2-scr dk">
+          <div class="wf2-col">
+            <div class="blk t1 b1">Mover</div>
+            <div class="blk t2 b2">Scores &amp; reviews</div>
+            <div class="blk t4 b4">Services, facts, more reviews</div>
+          </div>
+          <div class="blk hl b3"><small>Sticky</small>Price, quote, call<i></i><i></i></div>
+        </div>
+        <figcaption>Desktop</figcaption>
+      </figure>
+    </div>
   </section>
 
   <!-- MOBILE FLOW -->
-  <section class="psec wrap">
-    <h2 class="rv">Mobile quote flow</h2>
-    <p class="desc rv d1">On mobile, the persistent bottom bar keeps the primary action reachable. Phone contact opens a native action sheet with two explicit choices: call now or save the contact. This makes the secondary path intentional instead of forcing users into a single behavior.</p>
-    <div class="two rv d2">
-      <div class="pimg"><img src="mb-detail-4.png" alt="UX/UI Design Detail"></div>
-      <div class="pimg"><img src="mb-detail-5.png" alt="UX/UI Design Detail"></div>
+  <section class="psec wrap" id="mobile">
+    <h2 class="rv">Calling, without surprises</h2>
+    <p class="desc rv d1">Call offers to save the contact first, so people recognize the mover when they call back.</p>
+    <div class="pimg rv d2"><img src="mb-detail-2.png" alt="Mobile mover profile, call confirmation sheet and the resulting call log with and without the saved contact"></div>
+  </section>
+
+  <!-- SYSTEM -->
+  <section class="psec wrap" id="system">
+    <h2 class="rv">Price before the ask, across the site</h2>
+    <p class="desc rv d1">Route pages open with a cost estimate. Price insights show the cheapest month to move.</p>
+    <div class="pimg tall rv d2"><img src="mb-detail-3.jpg" alt="Route page from Los Angeles to Houston with an estimated cost and time summary"></div>
+    <div class="two gap">
+      <div class="panel rv">
+        <div class="mx" aria-label="Move Smarter card">
+          <div class="mx-card ms-head">
+            <div class="ms-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H10l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M8 9h8M8 12.5h5"/></svg></div>
+            <h3>Move Smarter</h3>
+          </div>
+          <div class="mx-card ms-list">
+            <div class="ms-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/></svg></span>Find the cheapest months to move</div>
+            <div class="ms-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-3M9 20v-6M14 20v-4M19 20V9"/><path d="M3 11l5-4 4 3 8-6"/></svg></span>Track historical moving costs</div>
+            <div class="ms-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4z"/><path d="M10 21a2 2 0 0 0 4 0"/></svg></span>Get alerts when prices drop</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel rv d1">
+        <div class="mx mx-card ch" id="chart">
+          <h3>Cheapest month to move from Ohio to Texas</h3>
+          <div class="ch-stats">
+            <div><span>Cheapest month</span><b class="g">February</b></div>
+            <div><span>Save up to</span><b>$<span id="save">2,700</span><em>&darr; 32%</em></b></div>
+          </div>
+          <div class="ch-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4z"/><path d="M10 21a2 2 0 0 0 4 0"/></svg>Get Price Alerts</div>
+          <div class="ch-plot" role="img" aria-label="Average moving cost by month, from $8.4k in August down to $5.7k in February">
+            <div class="ch-y"><span>$10k</span><span>$7.5k</span><span>$5k</span><span>$2.5k</span><span>$0</span></div>
+            <div class="ch-area">
+              <div class="ch-grid"><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="ch-bars">
+                <span class="b" style="--h:71%;--i:0"></span>
+                <span class="b" style="--h:76%;--i:1"></span>
+                <span class="b" style="--h:81%;--i:2"></span>
+                <span class="b" style="--h:83%;--i:3"></span>
+                <span class="b pk" style="--h:84%;--i:4"><span class="tip">$8.4k</span></span>
+                <span class="b" style="--h:79%;--i:5"></span>
+                <span class="b" style="--h:73%;--i:6"></span>
+                <span class="b" style="--h:67%;--i:7"></span>
+                <span class="b" style="--h:62%;--i:8"></span>
+                <span class="b" style="--h:59%;--i:9"></span>
+                <span class="b lo" style="--h:57%;--i:10"><span class="tip">$5.7k</span></span>
+                <span class="b" style="--h:60%;--i:11"></span>
+              </div>
+              <div class="ch-x"><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span></div>
+            </div>
+          </div>
+          <p class="ch-note">Average prices from the past year. Savings compared with the most expensive month.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- IMPACT -->
-  <section class="psec wrap">
-    <h2 class="rv">What changed</h2>
-    <p class="desc rv d1">The redesigned pages rolled out across the mover directory. The reported post-launch metrics below track quote requests, click-to-call conversion and time on page against the previous experience. They show how the work performed, while the design decisions above explain what changed in the experience.</p>
+  <section class="psec wrap" id="impact">
+    <h2 class="rv">Early results</h2>
+    <p class="desc rv d1">The A/B test is still running, so these are directional, not final.</p>
     <div class="metrics">
-      <div class="metric rv"><span class="mv">+34%</span><div class="ml">Quote request rate (mobile)</div></div>
-      <div class="metric rv d1"><span class="mv">+21%</span><div class="ml">Click-to-call conversion</div></div>
-      <div class="metric rv d2"><span class="mv">+18%</span><div class="ml">Time on page (post-redesign)</div></div>
+      <div class="metric rv"><span class="mv">+12%</span><div class="ml">Quote request rate on mobile</div></div>
+      <div class="metric rv d1"><span class="mv">+7%</span><div class="ml">Click-to-call rate</div></div>
+      <div class="metric next rv d2"><span class="mv">Next</span><div class="ml">Lead quality: do the extra quotes turn into booked moves?</div></div>
     </div>
-    <p class="mnote">Metrics reflect post-launch performance tracked over a 90-day window. Quote rate and call conversion measured against the previous page variant.</p>
+    <p class="mnote">Variant vs. the live page (control), 50/50 traffic split.</p>
   </section>
 
   <!-- THANKS + NEXT -->
@@ -521,7 +745,7 @@ footer .fin b{color:var(--ink);font-weight:600}
     <h2 class="rv d1">Thank you for viewing!</h2>
     <a class="pcard wide rv d2" href="project-3.html">
       <div class="media">
-        <div class="inner"><img src="rt-home.png" alt="CookUnity design system: typography, components and color palette"></div>
+        <div class="inner"><img src="rt-home.png" alt="Ruta0 route planner"></div>
         <span class="arrow">&rarr;</span>
       </div>
       <div class="cap"><span class="t">Ruta0</span><span class="m">Route Planner &middot; 2026</span></div>
@@ -544,8 +768,35 @@ addEventListener('scroll',function(){
   var max=document.documentElement.scrollHeight-innerHeight;
   pb.style.transform='scaleX('+(max>0?Math.min(scrollY/max,1):0)+')';
 },{passive:true});
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
 document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
+/* before / after */
+(function(){
+  var ba=document.getElementById('ba'),r=document.getElementById('baRange'),anim;
+  function set(v){v=Math.max(0,Math.min(100,v));ba.style.setProperty('--pos',v+'%');r.value=v}
+  function go(to,ms,done){cancelAnimationFrame(anim);if(reduce){set(to);done&&done();return}
+    var from=+r.value,t0=null;
+    anim=requestAnimationFrame(function step(t){if(t0===null)t0=t;var k=Math.max(0,Math.min((t-t0)/ms,1));var e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;set(from+(to-from)*e);if(k<1)anim=requestAnimationFrame(step);else{set(to);done&&done()}})}
+  r.addEventListener('input',function(){cancelAnimationFrame(anim);set(+r.value)});
+  r.addEventListener('pointerdown',function(){cancelAnimationFrame(anim)});
+  var seen=false,ho=new IntersectionObserver(function(es){if(es[0].isIntersecting&&!seen&&!reduce){seen=true;ho.disconnect();
+    setTimeout(function(){go(75,700,function(){go(25,900,function(){go(50,700)})})},500)}},{threshold:.6});
+  ho.observe(ba);set(50);
+})();
+
+/* chart: count up the savings */
+(function(){
+  var el=document.getElementById('save'),c=document.getElementById('chart');if(reduce)return;
+  var co=new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;co.disconnect();
+    var t0=null;el.textContent='0';
+    requestAnimationFrame(function step(t){if(t0===null)t0=t+900;var k=Math.max(0,Math.min((t-t0)/1100,1));k=1-Math.pow(1-k,3);
+      el.textContent=Math.round(2700*k).toLocaleString('en-US');if(k<1)requestAnimationFrame(step)})},{threshold:.4});
+  co.observe(c);
+})();
 </script>
-</body>
-</html>
+</div>
+
+</body></html>
