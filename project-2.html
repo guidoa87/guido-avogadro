@@ -462,57 +462,10 @@ footer .fin b{color:var(--ink);font-weight:600}
 .jc .shot img{max-width:100%;border-radius:10px;background:#fff;box-shadow:0 10px 24px -14px rgba(18,18,18,.35);transform:translateY(10px);opacity:0;transition:transform .7s var(--ease) .3s,opacity .7s var(--ease) .3s}
 .jc.in .shot img{transform:none;opacity:1}
 
-/* system: animated components */
-.panel{background:var(--ph);border-radius:var(--r);padding:clamp(18px,3vw,36px);display:flex;align-items:center;justify-content:center;min-height:100%}
-.mx{width:100%;max-width:400px;font-family:var(--disp);color:#0f1b3d}
-.mx-card{background:#fff;border-radius:20px;box-shadow:0 20px 40px -24px rgba(15,27,61,.35)}
-.ms-head{padding:26px 22px;text-align:center;margin-bottom:12px}
-.ms-ic{width:62px;height:62px;border-radius:50%;background:var(--blue-t);color:var(--blue);display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
-.ms-ic svg{width:28px;height:28px}
-.ms-head h3{font-size:1.6rem;letter-spacing:-.03em;font-weight:800}
-.ms-list{padding:6px 20px}
-.ms-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #eceef3;font-family:var(--sans);font-size:15px;color:#3b4258;opacity:0;transform:translateX(-14px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
-.ms-row:last-child{border-bottom:0}
-.ms-row .ic{width:40px;height:40px;border-radius:50%;background:var(--blue-t);color:var(--blue);display:flex;align-items:center;justify-content:center;flex:none}
-.ms-row .ic svg{width:20px;height:20px}
-.in .ms-row{opacity:1;transform:none}
-.in .ms-row:nth-child(1){transition-delay:.35s}.in .ms-row:nth-child(2){transition-delay:.5s}.in .ms-row:nth-child(3){transition-delay:.65s}
-.in .ms-ic{animation:bob 3s ease-in-out 1s infinite}
-.in .ms-row:nth-child(3) .ic svg{animation:ring 2.8s ease-in-out 1.4s infinite;transform-origin:50% 10%}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-@keyframes ring{0%,70%,100%{transform:rotate(0)}75%{transform:rotate(14deg)}80%{transform:rotate(-12deg)}85%{transform:rotate(8deg)}90%{transform:rotate(-4deg)}}
-
-.ch{padding:22px}
-.ch h3{font-size:1.15rem;letter-spacing:-.02em;line-height:1.25;margin-bottom:14px;font-weight:800}
-.ch-stats{display:grid;grid-template-columns:1fr 1fr;border:1px solid #eceef3;border-radius:12px;padding:12px 14px;gap:12px;margin-bottom:12px}
-.ch-stats div>span{display:block;font-family:var(--sans);font-size:12px;color:#6b7186;margin-bottom:2px}
-.ch-stats b{font-size:1.25rem;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.ch-stats .g{color:var(--green)}
-.ch-stats em{font-style:normal;font-size:12px;color:var(--green);font-weight:700;margin-left:4px}
-.ch-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--blue);color:#fff;border-radius:10px;padding:11px;font-weight:700;font-size:14px;margin-bottom:16px}
-.ch-btn svg{width:16px;height:16px}
-.ch-plot{display:grid;grid-template-columns:auto 1fr;gap:8px;height:170px}
-.ch-y{display:flex;flex-direction:column;justify-content:space-between;font-size:10px;color:#6b7186;text-align:right;padding-bottom:16px;font-variant-numeric:tabular-nums}
-.ch-y span{line-height:0}
-.ch-area{position:relative;display:grid;grid-template-rows:1fr 16px}
-.ch-grid{position:absolute;inset:0 0 16px 0;display:flex;flex-direction:column;justify-content:space-between}
-.ch-grid i{border-top:1px dashed #e7e9ef}
-.ch-bars{position:relative;display:grid;grid-template-columns:repeat(12,1fr);gap:4px;align-items:end;height:100%}
-.ch-bars .b{position:relative;height:var(--h);background:#e9ebf1;border-radius:4px 4px 2px 2px;transform:scaleY(0);transform-origin:bottom;transition:transform .7s var(--ease);transition-delay:calc(var(--i) * 55ms + .2s)}
-.ch-bars .b.pk{background:var(--blue)}
-.ch-bars .b.lo{background:var(--green)}
-.in .ch-bars .b{transform:scaleY(1)}
-.ch-bars .tip{position:absolute;left:50%;bottom:calc(100% + 6px);transform:translate(-50%,6px);font-size:10px;font-weight:700;color:#fff;padding:3px 6px;border-radius:6px;white-space:nowrap;opacity:0;transition:opacity .4s,transform .4s var(--ease);transition-delay:1.2s}
-.ch-bars .pk .tip{background:var(--blue)}
-.ch-bars .lo .tip{background:var(--green)}
-.in .ch-bars .tip{opacity:1;transform:translate(-50%,0)}
-.ch-x{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;font-size:9.5px;color:#6b7186;text-align:center;align-items:end}
-.ch-note{font-family:var(--sans);font-size:11px;color:#6b7186;margin-top:10px}
-
 @media(max-width:960px){.pfacts{grid-template-columns:repeat(2,1fr)}.jr{grid-template-columns:1fr}}
 @media(max-width:760px){.steps{grid-template-columns:1fr;gap:18px}.steps::before{left:23px;right:auto;top:10px;bottom:10px;width:2px;height:auto;background:repeating-linear-gradient(180deg,var(--faint) 0 6px,transparent 6px 12px)}.step{display:grid;grid-template-columns:48px 1fr;column-gap:16px;text-align:left;padding:0}.step .dot{margin:0;grid-row:span 2}.jr-ends{display:none}}
 @media(max-width:560px){.ba-tag{font-size:9px;padding:4px 7px;top:6px}.ba-tag.b{left:6px}.ba-tag.a{right:6px}.ba-knob{width:34px;height:34px;margin:-17px 0 0 -17px}}
-@media(prefers-reduced-motion:reduce){.ms-row,.jc .shot img{opacity:1;transform:none}.ch-bars .b{transform:none}.ch-bars .tip{opacity:1}}
+@media(prefers-reduced-motion:reduce){.jc .shot img{opacity:1;transform:none}}
 
 /* ---------- link color ---------- */
 :root{--link:#0076d0;--link-t:#e6f1fb}
@@ -547,7 +500,10 @@ footer .fin b{color:var(--ink);font-weight:600}
 .wf2-scr.dk{align-items:stretch}
 .wf2-col{grid-template-rows:auto auto 1fr}
 .dk .blk.hl{align-self:start}
-.metric.next .mv{color:var(--mid);border-bottom-color:transparent}
+.metrics.plan .metric{display:flex;flex-direction:column;align-items:flex-start}
+.metrics.plan .k{font-family:var(--disp);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-bottom:14px}
+.metrics.plan .mv{font-size:clamp(1.35rem,2.4vw,1.75rem);border-bottom:0;padding-bottom:0;margin-bottom:10px}
+.metrics.plan .ml{font-size:14px}
 </style>
 <style>body{background:#fff;color:#121212}</style>
 <div id="top">
@@ -572,9 +528,9 @@ footer .fin b{color:var(--ink);font-weight:600}
   <section class="phero wrap" id="overview">
     <a class="btn ghost sm back" href="index.html#work"><span class="lw"><span class="l">&larr; All projects</span><span class="l dup">&larr; All projects</span></span></a>
     <h1 class="rv">Finding your mover shouldn&rsquo;t feel like moving</h1>
-    <p class="lede rv d1">A 2026 redesign of moveBuddha&rsquo;s mover profile, the page where people decide whether to contact a moving company. It&rsquo;s currently in an A/B test against the live page.</p>
+    <p class="lede rv d1">A redesign proposal for moveBuddha&rsquo;s mover profile, the page where people decide whether to contact a moving company.</p>
     <div class="pfacts rv d2">
-      <div class="f"><div class="k">Client</div><div class="v">moveBuddha</div></div>
+      <div class="f"><div class="k">Product</div><div class="v">moveBuddha</div></div>
       <div class="f"><div class="k">Role</div><div class="v">Lead Product Designer</div></div>
       <div class="f"><div class="k">Scope</div><div class="v">Mover profile, desktop + mobile</div></div>
       <div class="f"><div class="k">Year</div><div class="v">2026</div></div>
@@ -590,7 +546,7 @@ footer .fin b{color:var(--ink);font-weight:600}
         <input class="ba-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Drag to compare. Left is before, right is after.">
         <div class="ba-line"><span class="ba-knob" aria-hidden="true">&lsaquo;&rsaquo;</span></div>
         <span class="ba-tag b">Live today</span>
-        <span class="ba-tag a">A/B test</span>
+        <span class="ba-tag a">Redesign</span>
       </div>
     </div>
   </section>
@@ -608,7 +564,7 @@ footer .fin b{color:var(--ink);font-weight:600}
       <div class="step"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4M12 16h.01"/></svg></span><h3>Diagnose</h3><p>3 points of friction</p></div>
       <div class="step"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg></span><h3>Wireframe</h3><p>Mobile and desktop together</p></div>
       <div class="step"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></span><h3>Design</h3><p>Trust, price, action</p></div>
-      <div class="step"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><h3>Test</h3><p>A/B test vs. the live page</p></div>
+      <div class="step"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><h3>Validate</h3><p>A/B test plan</p></div>
     </div>
   </section>
 
@@ -676,79 +632,31 @@ footer .fin b{color:var(--ink);font-weight:600}
   <!-- SYSTEM -->
   <section class="psec wrap" id="system">
     <h2 class="rv">Price before the ask, across the site</h2>
-    <p class="desc rv d1">Route pages open with a cost estimate. Price insights show the cheapest month to move.</p>
-    <div class="pimg tall rv d2"><img src="mb-detail-3.jpg" alt="Route page from Los Angeles to Houston with an estimated cost and time summary"></div>
-    <div class="two gap">
-      <div class="panel rv">
-        <div class="mx" aria-label="Move Smarter card">
-          <div class="mx-card ms-head">
-            <div class="ms-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H10l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M8 9h8M8 12.5h5"/></svg></div>
-            <h3>Move Smarter</h3>
-          </div>
-          <div class="mx-card ms-list">
-            <div class="ms-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/></svg></span>Find the cheapest months to move</div>
-            <div class="ms-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-3M9 20v-6M14 20v-4M19 20V9"/><path d="M3 11l5-4 4 3 8-6"/></svg></span>Track historical moving costs</div>
-            <div class="ms-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4z"/><path d="M10 21a2 2 0 0 0 4 0"/></svg></span>Get alerts when prices drop</div>
-          </div>
-        </div>
-      </div>
-      <div class="panel rv d1">
-        <div class="mx mx-card ch" id="chart">
-          <h3>Cheapest month to move from Ohio to Texas</h3>
-          <div class="ch-stats">
-            <div><span>Cheapest month</span><b class="g">February</b></div>
-            <div><span>Save up to</span><b>$<span id="save">2,700</span><em>&darr; 32%</em></b></div>
-          </div>
-          <div class="ch-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4z"/><path d="M10 21a2 2 0 0 0 4 0"/></svg>Get Price Alerts</div>
-          <div class="ch-plot" role="img" aria-label="Average moving cost by month, from $8.4k in August down to $5.7k in February">
-            <div class="ch-y"><span>$10k</span><span>$7.5k</span><span>$5k</span><span>$2.5k</span><span>$0</span></div>
-            <div class="ch-area">
-              <div class="ch-grid"><i></i><i></i><i></i><i></i><i></i></div>
-              <div class="ch-bars">
-                <span class="b" style="--h:71%;--i:0"></span>
-                <span class="b" style="--h:76%;--i:1"></span>
-                <span class="b" style="--h:81%;--i:2"></span>
-                <span class="b" style="--h:83%;--i:3"></span>
-                <span class="b pk" style="--h:84%;--i:4"><span class="tip">$8.4k</span></span>
-                <span class="b" style="--h:79%;--i:5"></span>
-                <span class="b" style="--h:73%;--i:6"></span>
-                <span class="b" style="--h:67%;--i:7"></span>
-                <span class="b" style="--h:62%;--i:8"></span>
-                <span class="b" style="--h:59%;--i:9"></span>
-                <span class="b lo" style="--h:57%;--i:10"><span class="tip">$5.7k</span></span>
-                <span class="b" style="--h:60%;--i:11"></span>
-              </div>
-              <div class="ch-x"><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span></div>
-            </div>
-          </div>
-          <p class="ch-note">Average prices from the past year. Savings compared with the most expensive month.</p>
-        </div>
-      </div>
-    </div>
+    <p class="desc rv d1">Route pages open with a cost estimate before listing any movers.</p>
+    <div class="pimg tall rv d2"><img src="mb-route.jpg" alt="Route page from Los Angeles to Houston with an estimated cost and time summary, shown on a laptop"></div>
   </section>
 
-  <!-- IMPACT -->
+  <!-- VALIDATION -->
   <section class="psec wrap" id="impact">
-    <h2 class="rv">Early results</h2>
-    <p class="desc rv d1">The A/B test is still running, so these are directional, not final.</p>
-    <div class="metrics">
-      <div class="metric rv"><span class="mv">+12%</span><div class="ml">Quote request rate on mobile</div></div>
-      <div class="metric rv d1"><span class="mv">+7%</span><div class="ml">Click-to-call rate</div></div>
-      <div class="metric next rv d2"><span class="mv">Next</span><div class="ml">Lead quality: do the extra quotes turn into booked moves?</div></div>
+    <h2 class="rv">How I&rsquo;d validate it</h2>
+    <p class="desc rv d1">Hypothesis: showing evidence and price before the ask gets more people on mobile to request a quote, without lowering lead quality.</p>
+    <div class="metrics plan">
+      <div class="metric rv"><span class="k">Primary metric</span><span class="mv">Quote requests</span><div class="ml">Rate on mobile, new design vs. the live page as control</div></div>
+      <div class="metric rv d1"><span class="k">Guardrails</span><span class="mv">Calls &amp; bounce</span><div class="ml">Click-to-call shouldn&rsquo;t drop and bounce rate shouldn&rsquo;t rise</div></div>
+      <div class="metric rv d2"><span class="k">Then</span><span class="mv">Lead quality</span><div class="ml">Do the extra quotes turn into booked moves?</div></div>
     </div>
-    <p class="mnote">Variant vs. the live page (control), 50/50 traffic split.</p>
   </section>
 
   <!-- THANKS + NEXT -->
   <section class="thanks wrap">
     <span class="em rv">&#128075;</span>
     <h2 class="rv d1">Thank you for viewing!</h2>
-    <a class="pcard wide rv d2" href="project-3.html">
+    <a class="pcard wide rv d2" href="project-1.html">
       <div class="media">
-        <div class="inner"><img src="rt-home.png" alt="Ruta0 route planner"></div>
+        <div class="inner"><img src="cu-home.png" alt="CookUnity weekly meal menu interface"></div>
         <span class="arrow">&rarr;</span>
       </div>
-      <div class="cap"><span class="t">Ruta0</span><span class="m">Route Planner &middot; 2026</span></div>
+      <div class="cap"><span class="t">CookUnity</span><span class="m">Subscription &middot; 2019&ndash;2021</span></div>
     </a>
   </section>
 
@@ -787,15 +695,6 @@ var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   ho.observe(ba);set(50);
 })();
 
-/* chart: count up the savings */
-(function(){
-  var el=document.getElementById('save'),c=document.getElementById('chart');if(reduce)return;
-  var co=new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;co.disconnect();
-    var t0=null;el.textContent='0';
-    requestAnimationFrame(function step(t){if(t0===null)t0=t+900;var k=Math.max(0,Math.min((t-t0)/1100,1));k=1-Math.pow(1-k,3);
-      el.textContent=Math.round(2700*k).toLocaleString('en-US');if(k<1)requestAnimationFrame(step)})},{threshold:.4});
-  co.observe(c);
-})();
 </script>
 </div>
 

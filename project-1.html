@@ -411,6 +411,21 @@ footer .fin b{color:var(--ink);font-weight:600}
   .contact h2{font-size:clamp(2rem,9vw,2.8rem)}
 }
 
+/* process strip */
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:0;counter-reset:st;position:relative}
+.steps::before{content:"";position:absolute;left:8.3%;right:8.3%;top:23px;height:2px;background:repeating-linear-gradient(90deg,var(--faint) 0 6px,transparent 6px 12px)}
+.step{text-align:center;padding:0 8px;position:relative}
+.step .dot{width:48px;height:48px;border-radius:50%;margin:0 auto 16px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink);box-shadow:0 8px 20px -12px rgba(18,18,18,.3);position:relative;z-index:1;transition:background .4s,color .4s,transform .4s var(--ease)}
+.step .dot svg{width:20px;height:20px}
+.step h3{font-size:1rem;margin-bottom:4px}
+.step p{font-size:13px;color:var(--mid);line-height:1.45}
+.steps.in .step .dot{animation:stepOn .5s var(--ease) both}
+.steps.in .step:nth-child(1) .dot{animation-delay:.1s}.steps.in .step:nth-child(2) .dot{animation-delay:.25s}.steps.in .step:nth-child(3) .dot{animation-delay:.4s}.steps.in .step:nth-child(4) .dot{animation-delay:.55s}.steps.in .step:nth-child(5) .dot{animation-delay:.7s}
+@keyframes stepOn{0%{transform:scale(.7)}60%{transform:scale(1.1);background:var(--ink);color:#fff}100%{transform:scale(1)}}
+.steps.in .step:nth-child(6) .dot{animation-delay:.85s}
+@media(max-width:960px) and (min-width:761px){.steps{grid-template-columns:repeat(3,1fr);row-gap:28px}.steps::before{display:none}}
+@media(max-width:760px){.steps{grid-template-columns:1fr;gap:18px}.steps::before{left:23px;right:auto;top:10px;bottom:10px;width:2px;height:auto;background:repeating-linear-gradient(180deg,var(--faint) 0 6px,transparent 6px 12px)}.step{display:grid;grid-template-columns:48px 1fr;column-gap:16px;text-align:left;padding:0}.step .dot{margin:0;grid-row:span 2}}
+@media(prefers-reduced-motion:reduce){.steps.in .step .dot{animation:none}}
 </style>
 </head>
 <body id="top">
@@ -459,7 +474,19 @@ footer .fin b{color:var(--ink);font-weight:600}
   <section class="psec wrap">
     <h2 class="rv">The problem to solve</h2>
     <p class="desc rv d1">The product was growing, but key moments in the weekly cycle created unnecessary effort. People had to commit before exploring the menu, filter a large selection with limited help, and contact support for routine subscription changes. I focused on three connected problems: let people understand the offer earlier, make meal selection easier and give members more control after subscribing.</p>
-    <div class="pimg rv d2"><img src="cu-detail-0.jpg" alt="CookUnity flow: sort and filter, browse meals, add to cart"></div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="psec wrap">
+    <h2 class="rv">How I got there</h2>
+    <div class="steps rv d2">
+      <div class="step"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><h3>Empathize</h3><p>User and stakeholder interviews, surveys</p></div>
+      <div class="step"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg></span><h3>Define</h3><p>Personas, project goal, journey map</p></div>
+      <div class="step"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></span><h3>Ideate</h3><p>User flows, app architecture</p></div>
+      <div class="step"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></span><h3>Design</h3><p>Wireframes, visual design</p></div>
+      <div class="step"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3"/></svg></span><h3>Test</h3><p>Usability testing, feedback</p></div>
+      <div class="step"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4c3-1 6-1 6-1s0 3-1 6l-6 6-5-5z"/><path d="M8 10l-4 1 2 2M14 16l-1 4-2-2M15 9h.01"/></svg></span><h3>Implement</h3><p>Handoff and release</p></div>
+    </div>
   </section>
 
   <!-- PROBLEMS -->

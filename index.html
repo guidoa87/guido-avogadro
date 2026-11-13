@@ -179,6 +179,7 @@ header.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(14px);box-
 
 /* ===== projects ===== */
 .plist{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.6vw,30px)}
+@media(min-width:961px){.plist:has(>.pcard:nth-child(3):last-child){grid-template-columns:repeat(3,1fr)}}
 .pcard{display:block;position:relative}
 .pcard .media{position:relative;aspect-ratio:4/3.1;overflow:hidden;background:var(--ph);border:1px solid var(--line-soft);border-radius:var(--r);box-shadow:var(--sh)}
 .pcard .media .inner{position:absolute;inset:-6% 0;will-change:transform}
@@ -628,13 +629,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="cap"><span class="t">Staircase</span><span class="m">Fintech &middot; 2021–2023</span></div><p class="pcard-summary">Helping loan officers see what needs attention first.</p>
       </a>
 
-      <a class="pcard rv" href="project-4.html">
-        <div class="media">
-          <div class="inner"><div class="ph"><img src="rt-home.png" alt="Ruta0 road trip planning interface"></div></div>
-          <span class="arrow">&rarr;</span>
-        </div>
-        <div class="cap"><span class="t">Ruta 0</span><span class="m">Travel &middot; 2024</span></div><p class="pcard-summary">Modernizing route planning without disrupting familiar habits.</p>
-      </a>
 
     </div>
   </section>
