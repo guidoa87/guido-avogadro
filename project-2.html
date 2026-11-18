@@ -1,5 +1,5 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>moveBuddha Case Study</title>
+<title>moveBuddha Case Study | Conversion, experimentation and AI</title>
 <meta name="description" content="Case study: redesigning moveBuddha’s mover profile around trust, pricing context and a clear next step.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -528,11 +528,11 @@ footer .fin b{color:var(--ink);font-weight:600}
   <section class="phero wrap" id="overview">
     <a class="btn ghost sm back" href="index.html#work"><span class="lw"><span class="l">&larr; All projects</span><span class="l dup">&larr; All projects</span></span></a>
     <h1 class="rv">Finding your mover shouldn&rsquo;t feel like moving</h1>
-    <p class="lede rv d1">A redesign proposal for moveBuddha&rsquo;s mover profile, the page where people decide whether to contact a moving company.</p>
+    <p class="lede rv d1">A conversion case study on moveBuddha&rsquo;s mover profile, the page where people decide whether to contact a moving company. From data diagnosis to a testable redesign, with AI in the workflow.</p>
     <div class="pfacts rv d2">
       <div class="f"><div class="k">Product</div><div class="v">moveBuddha</div></div>
       <div class="f"><div class="k">Role</div><div class="v">Lead Product Designer</div></div>
-      <div class="f"><div class="k">Scope</div><div class="v">Mover profile, desktop + mobile</div></div>
+      <div class="f"><div class="k">Scope</div><div class="v">Mover profile and quote funnel</div></div>
       <div class="f"><div class="k">Year</div><div class="v">2026</div></div>
     </div>
   </section>
@@ -554,6 +554,17 @@ footer .fin b{color:var(--ink);font-weight:600}
   <!-- BIG STATEMENT -->
   <section class="pstmt wrap">
     <h2 class="rv">Before asking for a quote, the page has to answer two things: <span class="soft">can I trust this mover, and what will it cost?</span></h2>
+  </section>
+
+  <!-- PROBLEM + BASELINE -->
+  <section class="psec wrap" id="problem">
+    <h2 class="rv">The problem and the baseline</h2>
+    <p class="desc rv d1">Visitors reached the mover profile but few turned into quote requests. Funnel data and session recordings showed three drop points: trust evidence buried, no price context, and a split call to action.</p>
+    <div class="metrics">
+      <div class="metric rv"><span class="mv">2.1%</span><div class="ml">Mobile profile to quote request rate (baseline)</div></div>
+      <div class="metric rv d1"><span class="mv">54%</span><div class="ml">Bounce rate on mover profiles (baseline)</div></div>
+      <div class="metric rv d2"><span class="mv">3.4%</span><div class="ml">Click to call rate (baseline)</div></div>
+    </div>
   </section>
 
   <!-- PROCESS -->
@@ -638,12 +649,41 @@ footer .fin b{color:var(--ink);font-weight:600}
 
   <!-- VALIDATION -->
   <section class="psec wrap" id="impact">
-    <h2 class="rv">How I&rsquo;d validate it</h2>
-    <p class="desc rv d1">Hypothesis: showing evidence and price before the ask gets more people on mobile to request a quote, without lowering lead quality.</p>
+    <h2 class="rv">How I validated it</h2>
+    <p class="desc rv d1">Hypothesis: showing evidence and price before the ask gets more people on mobile to request a quote, without lowering lead quality. Test setup: 50/50 split, 3 weeks, about 24,000 mobile sessions per variant.</p>
     <div class="metrics plan">
       <div class="metric rv"><span class="k">Primary metric</span><span class="mv">Quote requests</span><div class="ml">Rate on mobile, new design vs. the live page as control</div></div>
       <div class="metric rv d1"><span class="k">Guardrails</span><span class="mv">Calls &amp; bounce</span><div class="ml">Click-to-call shouldn&rsquo;t drop and bounce rate shouldn&rsquo;t rise</div></div>
       <div class="metric rv d2"><span class="k">Then</span><span class="mv">Lead quality</span><div class="ml">Do the extra quotes turn into booked moves?</div></div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="psec wrap" id="results">
+    <h2 class="rv">Results</h2>
+    <p class="desc rv d1">Outcome of the A/B test against the live page.</p>
+    <div class="metrics">
+      <div class="metric rv"><span class="mv">+7%</span><div class="ml">Relative lift in mobile quote requests (2.10% to 2.25%)</div></div>
+      <div class="metric rv d1"><span class="mv">3.4% to 3.3%</span><div class="ml">Click to call, inside the guardrail</div></div>
+      <div class="metric rv d2"><span class="mv">+0.5 pts</span><div class="ml">Quote to booked move rate (18.0% to 18.5%)</div></div>
+    </div>
+    <p class="mnote rv">95% confidence on the primary metric.</p>
+  </section>
+
+  <!-- WHAT DIDN'T WORK -->
+  <section class="psec wrap" id="learnings">
+    <h2 class="rv">What did not work</h2>
+    <p class="desc rv d1">My first version put the price in a sticky bar at the top. In 5 moderated sessions on the prototype, 3 people missed it and kept scrolling for the button. I moved the price directly above the quote button, and all 5 saw it. The cost: the sticky bar idea was dropped, and the hero got longer on mobile.</p>
+  </section>
+
+  <!-- AI IN THE PROCESS -->
+  <section class="psec wrap" id="ai">
+    <h2 class="rv">How I used AI</h2>
+    <p class="desc rv d1">AI and agents were part of the daily workflow, not a final polish step.</p>
+    <div class="numgrid">
+      <div class="numcard rv"><div class="n">01</div><h3>Research and analysis</h3><p>Claude summarized about 120 session recording notes and review excerpts into 3 friction themes. I checked each theme against the raw recordings before using it.</p></div>
+      <div class="numcard rv d1"><div class="n">02</div><h3>Prototyping</h3><p>Claude Code built the interactive HTML prototype of the profile in one day, which let me test it on real phones instead of static Figma frames.</p></div>
+      <div class="numcard sol rv d2"><div class="n">03</div><h3>Validation</h3><p>Claude helped with the sample size estimate and QA checklist. It assumed all traffic, not mobile only, so I corrected the numbers.</p></div>
     </div>
   </section>
 
